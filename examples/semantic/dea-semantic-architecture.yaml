@@ -1,0 +1,40 @@
+# Worked example: a semantic-class registration record (CR-AR-01 §Phase 1 + CR-ESA-01 Phase 1).
+#
+# This file demonstrates the schema accepting a semantic-class entry. It is NOT
+# shipped to registry/ yet; that happens when CR-ESA-01 Phase 2 lands with real
+# telecom-operator sector content. Until then, examples/semantic/ is the canonical
+# "shape-of-a-semantic-entry" reference.
+id: dea-semantic-architecture
+asset_class: semantic
+type: semantic-architecture-asset
+name: Enterprise Semantic Architecture
+description: >-
+  Canonical grounding repository for how enterprises organise meaning
+  (semantic layers, vocabularies, concept graphs, knowledge-graph architectures).
+source:
+  organization: technehub-labs
+  repository: dea-semantic-architecture
+release:
+  version: 0.1.0-proposal
+  reference: 6900cfc0688247ccafb048e02963f781500c515c
+conformsTo:
+  contract:
+    id: opendea-semantic-architecture-spec
+    version: "CR-ESA-01"
+status: reference
+compatibility:
+  required_axes:
+    - governance
+    - vocabulary_governance
+    - concept_graph_topology
+    - pattern_conformance
+  declared_axes:
+    governance: "ESA axiom 01 (semantic layers are architectural); CR-ESA-01 §Phase 4 GOVERNANCE.md"
+    vocabulary_governance: "ESA axiom 02; pattern family 2 (Phase 4)"
+    concept_graph_topology: "ESA axiom 03; pattern family 3 (Phase 4)"
+    pattern_conformance: "ESA pattern library (Phase 4)"
+notes: >-
+  Worked example for CR-AR-01 §Phase 1 — validates the schema accepts a
+  semantic-class entry with the per-class required `compatibility` block.
+  Cross-class resolution with assessment-class assets uses the `governance`
+  axis as the shared baseline (see axes/catalog.yaml).

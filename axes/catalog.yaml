@@ -1,0 +1,144 @@
+# Compatibility axes catalog — CR-AR-01 §Phase 1
+#
+# Each asset class declares which axes it satisfies. Axes are asset-class-specific.
+# An asset is compatible with another asset of a different class iff the set of
+# shared axes each declares "compatible" is >= the consumer's min_compatible_axes.
+#
+# This file is DOCUMENTARY. The schema (registration.schema.json) does NOT enforce
+# a fixed axis catalogue — schemas validate shape; catalogues validate meaning.
+# Phase 5 (CR-AR-04) introduces a governance policy that *can* enforce a stricter
+# axis catalogue per asset class if/when the federation needs it.
+#
+# Status convention:
+#   declared   — this asset class formally declares this axis
+#   shared     — also declared by another asset class; cross-class resolution applies
+#   reserved   — reserved for a future asset class (e.g. agentic, twin)
+
+axes:
+
+  # --- ASSESSMENT class (CR-AM-11 §10–12) ---
+  # Established by CR-AM-11 Phase 1; six axes. New assessment-class assets MUST
+  # declare these six; compatibility resolution treats each as required.
+  assessment:
+    - name: scoring
+      status: declared
+      description: >-
+        The asset declares its scoring model (rubric, weights, scoring bands).
+        Required for any asset that produces numeric or banded scores.
+    - name: vocabulary
+      status: declared
+      description: >-
+        The asset uses a governed vocabulary (CR-MM-01.1 pattern).
+        Required for any asset that emits terms mapped to a vocabulary.
+    - name: examples
+      status: declared
+      description: >-
+        The asset ships worked examples (input → result pairs) that
+        validate against the asset's declared schema.
+    - name: schema
+      status: declared
+      description: >-
+        The asset declares a JSON Schema (or equivalent) for its inputs and outputs.
+        Required for any asset that consumes/produces structured payloads.
+    - name: runner
+      status: declared
+      description: >-
+        The asset declares how it is executed (CLI, library, service). Required for
+        any asset that participates in the assessment-ci pipeline.
+    - name: governance
+      status: declared
+      description: >-
+        The asset declares its lifecycle status, review cadence, and change-policy.
+        Required for every assessment-class asset.
+
+  # --- SEMANTIC class (CR-ESA-01) ---
+  # Axes for Enterprise Semantic Architecture assets. Cross-class resolution
+  # applies via the `governance` shared axis.
+  semantic:
+    - name: governance
+      status: shared
+      description: >-
+        Same as assessment.governance; required for every semantic-class asset.
+        Cross-class compatibility uses this axis.
+    - name: vocabulary_governance
+      status: declared
+      description: >-
+        The asset declares its vocabulary versioning, deprecation, mapping, and
+        retirement policy (ESA pattern family 2; CR-ESA-01 Phase 4).
+    - name: concept_graph_topology
+      status: declared
+      description: >-
+        The asset declares which edge kinds it admits (broader/narrower,
+        related, equivalent, mapped-from). Maps to ESA axiom 03.
+    - name: pattern_conformance
+      status: declared
+      description: >-
+        The asset references one or more patterns from
+        technehub-labs/dea-semantic-architecture/patterns/.
+
+  # --- ONTOLOGICAL class (CR-EO-01) ---
+  # Axes for Enterprise Ontology assets. Cross-class resolution applies via
+  # the `governance` shared axis.
+  ontological:
+    - name: governance
+      status: shared
+      description: >-
+        Same as assessment.governance; required for every ontological-class asset.
+        Cross-class compatibility uses this axis.
+    - name: upper_ontology_choice
+      status: declared
+      description: >-
+        The asset declares its upper-ontology choice (BFO / DOLCE / SUMO / EMMO /
+        custom) in its sector-tenets. Maps to EO axiom 02.
+    - name: profile_declaration
+      status: declared
+      description: >-
+        The asset declares its OWL 2 profile (EL / QL / RL / full) per
+        EO pattern family 2.
+    - name: axiomatisation_depth
+      status: declared
+      description: >-
+        The asset declares its axiomatisation depth (minimal-classification vs
+        rich-axiomatisation) per EO pattern family 3.
+    - name: modularisation
+      status: declared
+      description: >-
+        The asset declares its module boundaries and import graph per
+        EO pattern family 4.
+
+  # --- EXTENSION class (reserved) ---
+  # Future asset classes (agentic, twin, etc.) register here. Each extension
+  # MUST declare at least one axis that is `shared` with an existing class
+  # so cross-class resolution is well-defined.
+  extension:
+    - name: governance
+      status: shared
+      description: >-
+        Same as assessment.governance; required for every extension-class asset.
+    - name: extension_kind
+      status: declared
+      description: >-
+        The asset declares its extension kind (e.g. "agentic", "twin", "policy").
+        Extension kinds are not enumerated here — they are declared per-CR when
+        the extension class is introduced (CR-AR-01 §Scope constraint).
+
+# Cross-class compatibility (resolution rule)
+#
+# Two assets of different classes are compatible iff:
+#   1. They share at least one `declared` axis (typically `governance`).
+#   2. The consumer's `compatibility.required_axes` is a subset of the union of
+#      axes each declares as `shared`.
+#   3. There are no `declared_axes` conflicts between the two on the shared axes.
+#
+# Example: assessment.dea-catalog-assessment-tools (assessment class) ↔
+#          semantic.dea-semantic-architecture (semantic class):
+#   - shared: `governance` (both declare it as `shared`)
+#   - consumer (assessment) requires axes: [scoring, vocabulary, examples, schema, runner, governance]
+#   - provider (semantic) declares: [governance, vocabulary_governance, concept_graph_topology, pattern_conformance]
+#   - resolution: compatible ONLY for the `governance` axis; the assessment consumer
+#     requires 5 more axes the semantic provider does not declare. Result: incompatible
+#     for the assessment consumer's full required set; compatible for governance-only
+#     use cases (e.g. shared governance rules).
+#
+# This rule is implemented in the resolver when needed; for Phase 1 the rule is
+# DOCUMENTARY and surfaces in the README.

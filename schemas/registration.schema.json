@@ -1,8 +1,8 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "$id": "https://assessment-models.github.io/assessment-registry/schemas/registration.schema.json",
-  "title": "Assessment Ecosystem Registration Record",
-  "description": "One registration record per ecosystem asset (CR-AM-11 section 11). Metadata and immutable references only - never model content.",
+  "title": "OpenDEA-Compatible Asset Registration Record",
+  "description": "One registration record per OpenDEA-compatible asset (CR-AM-11 section 11 + CR-AR-01 section Scope). Metadata and immutable references only - never model content. asset_class defaults to 'assessment' when absent (CR-AR-01 backward-compat shim).",
   "type": "object",
   "additionalProperties": false,
   "required": ["id", "type", "name", "source", "release", "conformsTo", "status"],
@@ -12,9 +12,14 @@
       "pattern": "^[a-z][a-z0-9-]*$",
       "description": "Canonical asset identifier. Equals the filename stem."
     },
+    "asset_class": {
+      "type": "string",
+      "enum": ["assessment", "semantic", "ontological", "extension"],
+      "description": "CR-AR-01 discriminator. Defaults to 'assessment' when absent (backward-compat shim). New asset classes require their own CR (CR-AR-01 §Scope constraint)."
+    },
     "type": {
       "type": "string",
-      "enum": ["maturity-model", "assessment-model", "assessment-tool", "component"]
+      "enum": ["maturity-model", "assessment-model", "assessment-tool", "component", "semantic-architecture-asset", "ontology-asset", "extension"]
     },
     "name": {"type": "string", "minLength": 1},
     "description": {"type": "string"},
@@ -88,6 +93,48 @@
       "description": "Other registered asset ids this asset depends on.",
       "items": {"type": "string", "pattern": "^[a-z][a-z0-9-]*$"}
     },
+    "compatibility": {
+      "type": "object",
+      "description": "CR-AR-01 compatibility-axes generalisation. Optional for backward compatibility; new asset classes should declare their axes here per axes/catalog.yaml.",
+      "additionalProperties": false,
+      "required": ["required_axes"],
+      "properties": {
+        "required_axes": {
+          "type": "array",
+          "description": "Axes this asset MUST satisfy for cross-asset compatibility.",
+          "items": {"type": "string", "minLength": 1}
+        },
+        "declared_axes": {
+          "type": "object",
+          "description": "Per-axis declaration of how this asset satisfies each axis.",
+          "additionalProperties": {"type": "string"}
+        }
+      }
+    },
     "notes": {"type": "string"}
-  }
+  },
+  "allOf": [
+    {
+      "description": "Per-asset-class required field sets (CR-AR-01 §Scope — non-breaking).",
+      "if": {"properties": {"asset_class": {"const": "semantic"}}, "required": ["asset_class"]},
+      "then": {
+        "description": "Semantic-class entries declare compatibility axes (governance + at least one technical axis).",
+        "required": ["compatibility"]
+      }
+    },
+    {
+      "if": {"properties": {"asset_class": {"const": "ontological"}}, "required": ["asset_class"]},
+      "then": {
+        "description": "Ontological-class entries declare compatibility axes (governance + upper-ontology choice).",
+        "required": ["compatibility"]
+      }
+    },
+    {
+      "if": {"properties": {"asset_class": {"const": "extension"}}, "required": ["asset_class"]},
+      "then": {
+        "description": "Extension-class entries declare compatibility axes (extension kind + compatibility statement).",
+        "required": ["compatibility"]
+      }
+    }
+  ]
 }

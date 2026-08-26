@@ -1,0 +1,42 @@
+# Worked example: an ontological-class registration record (CR-AR-01 §Phase 1 + CR-EO-01 Phase 1).
+#
+# This file demonstrates the schema accepting an ontological-class entry. It is
+# NOT shipped to registry/ yet; that happens when CR-EO-01 Phase 2 lands with
+# real telecom-operator sector content. Until then, examples/ontological/ is the
+# canonical "shape-of-an-ontological-entry" reference.
+id: dea-ontology
+asset_class: ontological
+type: ontology-asset
+name: Enterprise Ontology
+description: >-
+  Canonical grounding repository for formal OWL/RDF ontology practice
+  (upper-ontology conventions, ontology-engineering patterns, ontology lifecycle).
+source:
+  organization: technehub-labs
+  repository: dea-ontology
+release:
+  version: 0.1.0-proposal
+  reference: 5feb32a905b2c5e3ef3fa5c614e635ebbaabd839
+conformsTo:
+  contract:
+    id: opendea-enterprise-ontology-spec
+    version: "CR-EO-01"
+status: reference
+compatibility:
+  required_axes:
+    - governance
+    - upper_ontology_choice
+    - profile_declaration
+    - axiomatisation_depth
+    - modularisation
+  declared_axes:
+    governance: "EO GOVERNANCE.md (Phase 5) — ontology lifecycle policy (proposed→candidate→active→legacy→deprecated→retired)"
+    upper_ontology_choice: "EO axiom 02 — sector-specific, not federation-mandated; sector-tenets declare the choice"
+    profile_declaration: "EO pattern family 2 — OWL 2 EL/QL/RL/full selected per sector use case"
+    axiomatisation_depth: "EO pattern family 3 — minimal-classification vs rich-axiomatisation chosen per sector"
+    modularisation: "EO pattern family 4 — module boundaries + import graph per sector"
+notes: >-
+  Worked example for CR-AR-01 §Phase 1 — validates the schema accepts an
+  ontological-class entry with the per-class required `compatibility` block.
+  Cross-class resolution with assessment-class assets uses the `governance`
+  axis as the shared baseline (see axes/catalog.yaml).
