@@ -1,0 +1,24 @@
+# Worked example (CR-AM-11 section 11): registration record for the Phase 4
+# first-model candidate. This is an EXAMPLE — the repository and tag do not
+# exist yet; it demonstrates the record shape and validates in CI.
+id: digital-transformation-maturity-model
+type: maturity-model
+name: Digital Transformation Maturity Model
+description: >-
+  Composite maturity model spanning operations, technology and
+  services-delivery child models plus its own dimensions (CR-AM-10 driving
+  use case; CR-AM-11 Phase 4 initial candidate).
+source:
+  organization: Assessment-Models
+  repository: maturity-model-digital-transformation
+release:
+  version: 1.0.0
+  reference: v1.0.0
+conformsTo:
+  contract:
+    id: opendea-assessment-metamodel
+    version: "1.x"
+status: active
+notes: >-
+  Example record only. resolve.py --check is intentionally not run against
+  this example in CI (the tag does not exist until Phase 4 ships).

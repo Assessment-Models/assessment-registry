@@ -1,0 +1,33 @@
+# Registration record for the legacy v1-alpha maturity model catalog.
+#
+# This record registers the EXISTING repository as a legacy asset so the
+# registry can resolve it during the coexistence period (CR-AM-11 section 26).
+# It is a catalog of models, not a single model: its individual maturity
+# models migrate individually into maturity-model-* repositories in Phase 6
+# (IDENTIFY → CLASSIFY → EXTRACT → NORMALIZE → VALIDATE → REGISTER → RELEASE).
+id: dea-catalog-maturity-models
+type: maturity-model
+name: DEA Catalog — Maturity Models (legacy v1-alpha catalog)
+description: >-
+  Historical v1-alpha catalog of EA maturity models (five-level progression,
+  Ad Hoc through Optimising). Preserved as reference content; the canonical
+  maturity scale machinery (v2 bands, effort multipliers) lives in
+  technehub-labs/dea-metamodel per CR-AM-09.
+source:
+  organization: Assessment-Models
+  repository: dea-catalog-maturity-models
+release:
+  version: 1.0.0-alpha
+  reference: fa2f9d57b75227a65d052fa13f426171c1cd295c
+  commit: fa2f9d57b75227a65d052fa13f426171c1cd295c
+conformsTo:
+  contract:
+    id: opendea-assessment-metamodel
+    version: "1.0"
+status: legacy
+notes: >-
+  Registered during CR-AM-11 Phase 1 to demonstrate registration + resolution
+  against a real repository. No tags exist on the source repository; the
+  immutable reference is the main-tip commit SHA at registration time.
+  The merged docs/maturity-scoring-v2-proposal content is superseded by the
+  canonical CR-AM-09 scale contract and is a Phase 6 migration input.
