@@ -31,3 +31,7 @@ notes: >-
   immutable reference is the main-tip commit SHA at registration time.
   The merged docs/maturity-scoring-v2-proposal content is superseded by the
   canonical CR-AM-09 scale contract and is a Phase 6 migration input.
+  Phase 6 (CR-AM-11 §26) ships the migration plan shape; the fold-v2-in vs
+  freeze-as-legacy decision itself is deferred to CR-AM-01 Release 1 —
+  see technehub-labs/dea-metamodel/assessment-models/governance/
+  legacy-migration-plan.md.
