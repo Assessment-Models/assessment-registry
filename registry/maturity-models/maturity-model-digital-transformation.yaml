@@ -1,0 +1,51 @@
+# Registration record for the Phase 4 first-model candidate (CR-AM-11 section 31).
+#
+# The first independent, contract-conformant model in the ecosystem: it
+# demonstrates all three CI levels on one repository (Level 1 local-model CI,
+# Level 2 contract conformance via the reusable assessment-ci workflow,
+# Level 3 immutable-reference resolution via the registry).
+id: maturity-model-digital-transformation
+asset_class: assessment
+type: maturity-model
+name: Digital Transformation Maturity Model
+description: >-
+  Composite maturity model spanning operations, technology and
+  services-delivery child models, plus its own dimensions. CR-AM-10 driving
+  use case; CR-AM-11 Phase 4 first-model candidate. Scores against the
+  OpenDEA EA reference instance (scale + evaluation + Benchmark 2026
+  baseline) as its anchor.
+source:
+  organization: Assessment-Models
+  repository: maturity-model-digital-transformation
+release:
+  version: 1.0.0
+  reference: 1e1a16d75c04adf1038c52cb819573b1ed1c1f61
+  commit: 1e1a16d75c04adf1038c52cb819573b1ed1c1f61
+conformsTo:
+  contract:
+    id: maturity-scale-contract
+    version: "1.0"
+status: active
+components:
+  - id: digital-culture
+    type: maturity-component
+    version: 1.0.0
+    reference: 1e1a16d75c04adf1038c52cb819573b1ed1c1f61
+  - id: technology-adoption
+    type: maturity-component
+    version: 1.0.0
+    reference: 1e1a16d75c04adf1038c52cb819573b1ed1c1f61
+  - id: operations-modernization
+    type: maturity-component
+    version: 1.0.0
+    reference: 1e1a16d75c04adf1038c52cb819573b1ed1c1f61
+  - id: services-delivery
+    type: maturity-component
+    version: 1.0.0
+    reference: 1e1a16d75c04adf1038c52cb819573b1ed1c1f61
+notes: >-
+  Registered at the Phase 4 head commit; no release tag exists yet on the
+  source repository. Replace the SHA reference with the v1.0.0 tag when the
+  repository ships its first release. The components are imported from the
+  OpenDEA Component Registry (dea:component-*) with explicit kind fields per
+  CR-AM-10 section 4 (import / extend / override).

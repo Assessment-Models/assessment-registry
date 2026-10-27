@@ -1,0 +1,37 @@
+# Registration record for the legacy v1-alpha assessment-tools umbrella catalog.
+#
+# This is the umbrella index for the four domain instrument repositories.
+# It predates the federated ecosystem (CR-AM-11) and owns the shared
+# instrument schema, scoring rubric and methodology. Its index role is
+# superseded by this registry (Phase 3 consolidation): the catalog index
+# becomes a generated view of the registry or a legacy pointer.
+id: dea-catalog-assessment-tools
+asset_class: assessment
+type: assessment-tool
+name: DEA Catalog - Assessment Tools (legacy v1-alpha umbrella)
+description: >-
+  Historical v1-alpha umbrella catalog of EA assessment instruments:
+  shared instrument schema, scoring rubric and methodology, indexing four
+  domain instrument repositories (modernization, technology, operations,
+  services delivery).
+source:
+  organization: Assessment-Models
+  repository: dea-catalog-assessment-tools
+release:
+  version: 1.0.0-alpha
+  reference: d39865cce1f7f902d132774d11593a12cbefeb3e
+  commit: d39865cce1f7f902d132774d11593a12cbefeb3e
+conformsTo:
+  contract:
+    id: opendea-assessment-metamodel
+    version: "1.0"
+status: legacy
+notes: >-
+  Registered during ecosystem integration Phase 1. No tags exist on the
+  source repository; the immutable reference is the main-tip commit SHA at
+  registration time. The repo also lands CR-AM-01 (OpenDEA Assessment
+  Metamodel Evolution) as an authoritative reference in change-requests/.
+  Index/catalog role superseded by this registry: see Phase 3 consolidation
+  (dea-catalog-assessment-tools assessments/index.yaml becomes a generated
+  registry view or legacy pointer). CR-AM-01 Release 1 decides the fate of
+  the v1-alpha assets it indexes.
