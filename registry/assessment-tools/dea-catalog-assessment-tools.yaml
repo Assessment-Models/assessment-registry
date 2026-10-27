@@ -19,7 +19,7 @@ source:
   repository: dea-catalog-assessment-tools
 release:
   version: 1.0.0-alpha
-  reference: d39865cce1f7f902d132774d11593a12cbefeb3e
+  reference: v1.0.0-alpha
   commit: d39865cce1f7f902d132774d11593a12cbefeb3e
 conformsTo:
   contract:
@@ -27,9 +27,7 @@ conformsTo:
     version: "1.0"
 status: legacy
 notes: >-
-  Registered during ecosystem integration Phase 1. No tags exist on the
-  source repository; the immutable reference is the main-tip commit SHA at
-  registration time. The repo also lands CR-AM-01 (OpenDEA Assessment
+  Registered during ecosystem integration Phase 1. The immutable reference is the v1.0.0-alpha release tag (commit corroborated by SHA). The repo also lands CR-AM-01 (OpenDEA Assessment
   Metamodel Evolution) as an authoritative reference in change-requests/.
   Index/catalog role superseded by this registry: see Phase 3 consolidation
   (dea-catalog-assessment-tools assessments/index.yaml becomes a generated

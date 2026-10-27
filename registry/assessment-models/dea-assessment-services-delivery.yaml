@@ -14,7 +14,7 @@ source:
   repository: dea-assessment-services-delivery
 release:
   version: 1.0.0-alpha
-  reference: 94e5863d62111d1e4af14ca02e247657a5e49687
+  reference: v1.0.0-alpha
   commit: 94e5863d62111d1e4af14ca02e247657a5e49687
 conformsTo:
   contract:

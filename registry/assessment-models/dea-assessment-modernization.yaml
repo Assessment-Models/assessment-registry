@@ -13,7 +13,7 @@ source:
   repository: dea-assessment-modernization
 release:
   version: 1.0.0-alpha
-  reference: 75de625e1fccce5aed5fbf0120baa8f994b46ecb
+  reference: v1.0.0-alpha
   commit: 75de625e1fccce5aed5fbf0120baa8f994b46ecb
 conformsTo:
   contract:

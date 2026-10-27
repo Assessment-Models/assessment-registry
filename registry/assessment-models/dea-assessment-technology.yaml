@@ -13,7 +13,7 @@ source:
   repository: dea-assessment-technology
 release:
   version: 1.0.0-alpha
-  reference: 67d6ecf429fee62a68999e7675e8d2c61374a237
+  reference: v1.0.0-alpha
   commit: 67d6ecf429fee62a68999e7675e8d2c61374a237
 conformsTo:
   contract:
