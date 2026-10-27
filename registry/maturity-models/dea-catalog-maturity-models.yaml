@@ -25,6 +25,10 @@ conformsTo:
     id: opendea-assessment-metamodel
     version: "1.0"
 status: legacy
+superseded_by:
+  organization: technehub-labs
+  repository: dea-metamodel
+  path: assessment-models/maturity/
 notes: >-
   Registered during CR-AM-11 Phase 1 to demonstrate registration + resolution
   against a real repository. No tags exist on the source repository; the
@@ -39,5 +43,5 @@ notes: >-
   superseded by the v2 canonical maturity architecture (CR-AM-09) in
   technehub-labs/dea-metamodel — see
   dea-catalog-assessment-tools/change-requests/CR-AM-01-release-1-decision.md.
-  The registry schema does not yet carry a machine-readable superseded_by
-  field; that is a candidate schema extension (see PR notes).
+  Supersession is declared machine-readable via the superseded_by field
+  (CR-AR-05).

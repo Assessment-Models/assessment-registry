@@ -111,7 +111,23 @@
         }
       }
     },
-    "notes": {"type": "string"}
+    "notes": {"type": "string"},
+    "superseded_by": {
+      "description": "CR-AR-05. Machine-readable supersession: either a registered asset id or an external canonical target. Coherent with status: legacy/superseded records SHOULD declare it; active records MUST NOT.",
+      "oneOf": [
+        {"type": "string", "pattern": "^[a-z][a-z0-9-]*$"},
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["organization", "repository"],
+          "properties": {
+            "organization": {"type": "string", "minLength": 1},
+            "repository": {"type": "string", "minLength": 1},
+            "path": {"type": "string"}
+          }
+        }
+      ]
+    }
   },
   "allOf": [
     {

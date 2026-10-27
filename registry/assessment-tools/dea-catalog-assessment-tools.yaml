@@ -26,6 +26,9 @@ conformsTo:
     id: opendea-assessment-metamodel
     version: "1.0"
 status: legacy
+superseded_by:
+  organization: technehub-labs
+  repository: dea-metamodel
 notes: >-
   Registered during ecosystem integration Phase 1. No tags exist on the
   source repository; the immutable reference is the main-tip commit SHA at
