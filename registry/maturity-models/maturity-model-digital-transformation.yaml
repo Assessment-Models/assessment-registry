@@ -44,8 +44,7 @@ components:
     version: 1.0.0
     reference: 1e1a16d75c04adf1038c52cb819573b1ed1c1f61
 notes: >-
-  Registered at the Phase 4 head commit; no release tag exists yet on the
-  source repository. Replace the SHA reference with the v1.0.0 tag when the
-  repository ships its first release. The components are imported from the
+  Registered at the v1.0.0 release tag (commit corroborated by SHA);
+  component references pin the same release tag. The components are imported from the
   OpenDEA Component Registry (dea:component-*) with explicit kind fields per
   CR-AM-10 section 4 (import / extend / override).
