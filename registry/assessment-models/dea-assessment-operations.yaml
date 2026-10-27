@@ -12,9 +12,9 @@ source:
   organization: Assessment-Models
   repository: dea-assessment-operations
 release:
-  version: 1.0.0-alpha
-  reference: 00c9fcee2a1de795f21cca42c5dcb462ee9999b0
-  commit: 00c9fcee2a1de795f21cca42c5dcb462ee9999b0
+  version: 1.1.0-alpha
+  reference: v1.1.0-alpha
+  commit: e012695e10f573049d8da2ed8b3aa50097e7ea50
 conformsTo:
   contract:
     id: opendea-assessment-metamodel
