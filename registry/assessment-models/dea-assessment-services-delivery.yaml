@@ -20,14 +20,18 @@ conformsTo:
   contract:
     id: opendea-assessment-metamodel
     version: "1.0"
-status: candidate-for-migration
+status: active
 dependencies:
   - dea-catalog-assessment-tools
   - dea-catalog-maturity-models
 notes: >-
-  Registered during ecosystem integration Phase 1 as
-  candidate-for-migration pending the CR-AM-01 Release 1 decision (fold
-  into v2-canonical vs freeze as legacy). No tags exist on the source
+  CR-AM-01 Release 1 decision D-1/D-3 (freeze legacy cluster):
+  this instrument deliberately scores against the frozen v1-alpha
+  maturity scheme (status: legacy). The v2 migration path per domain is
+  an independent maturity-model-* repository anchored on the v2
+  canonical architecture (CR-AM-09); see
+  dea-catalog-assessment-tools/change-requests/
+  CR-AM-01-release-1-decision.md. No tags exist on the source
   repository; the immutable reference is the main-tip commit SHA at
   registration time. Porting to the federated contract handshake
   (model.yaml, Level 1/2 CI) is Phase 2 work of the integration plan.

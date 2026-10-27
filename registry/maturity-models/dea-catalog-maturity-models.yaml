@@ -35,3 +35,9 @@ notes: >-
   freeze-as-legacy decision itself is deferred to CR-AM-01 Release 1 —
   see technehub-labs/dea-metamodel/assessment-models/governance/
   legacy-migration-plan.md.
+  CR-AM-01 Release 1 decision D-1 (freeze legacy cluster): this catalog is
+  superseded by the v2 canonical maturity architecture (CR-AM-09) in
+  technehub-labs/dea-metamodel — see
+  dea-catalog-assessment-tools/change-requests/CR-AM-01-release-1-decision.md.
+  The registry schema does not yet carry a machine-readable superseded_by
+  field; that is a candidate schema extension (see PR notes).
