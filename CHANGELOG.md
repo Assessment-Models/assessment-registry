@@ -1,5 +1,10 @@
 # Changelog
 
+## [Unreleased] — CR-AR-05 follow-up: supersession resolution
+
+### Added
+- `scripts/resolve.py` surfaces `superseded_by` on resolution output: registered-asset form prints the transitive supersession chain (cycle-safe); external canonical target form prints `organization/repository (path)`. Active assets print nothing — the field is absent by schema coherence.
+
 ## [Unreleased] — CR-AR-05: machine-readable supersession
 
 ### Added

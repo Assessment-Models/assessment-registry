@@ -32,6 +32,31 @@ def find_record(asset_id: str) -> tuple[Path, dict]:
     raise SystemExit(f"FAIL — asset id {asset_id!r} is not registered")
 
 
+def supersession_chain(doc: dict, path: Path) -> list[str]:
+    chain = [doc.get("id", "?")]
+    current = doc
+    seen = {doc.get("id")}
+    while True:
+        sup = current.get("superseded_by")
+        if not sup:
+            break
+        if isinstance(sup, str):
+            if sup in seen:
+                chain.append(f"{sup} (cycle)")
+                break
+            chain.append(sup)
+            seen.add(sup)
+            try:
+                _, current = find_record(sup)
+            except SystemExit:
+                break
+        else:
+            target = f"{sup['organization']}/{sup['repository']}"
+            chain.append(target)
+            break
+    return chain
+
+
 def main() -> int:
     ap = argparse.ArgumentParser()
     ap.add_argument("asset_id")
@@ -48,6 +73,19 @@ def main() -> int:
     print(f"version:    {rel['version']}")
     print(f"reference:  {rel['reference']}")
     print(f"conformsTo: {doc['conformsTo']['contract']['id']} @ {doc['conformsTo']['contract']['version']}")
+
+    sup = doc.get("superseded_by")
+    if sup:
+        if isinstance(sup, str):
+            print(f"superseded_by: {sup} (registered asset)")
+            chain = supersession_chain(doc, path)
+            if len(chain) > 1:
+                print(f"chain:      {' -> '.join(chain)}")
+        else:
+            target = f"{sup['organization']}/{sup['repository']}"
+            if sup.get("path"):
+                target += f" ({sup['path']})"
+            print(f"superseded_by: {target} (external canonical target)")
 
     if not args.check:
         return 0
