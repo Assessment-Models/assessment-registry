@@ -1,0 +1,32 @@
+# Registration record for the legacy v1-alpha technology assessment instrument.
+id: dea-assessment-technology
+asset_class: assessment
+type: assessment-model
+name: Technology Assessment (legacy v1-alpha)
+description: >-
+  EA assessment instrument for the technology domain: stack fitness,
+  technical debt, lifecycle management, skill coverage. 5 dimensions, 19
+  questions, self-assessment. Scores against dea:maturity-technology in the
+  legacy dea-catalog-maturity-models catalog.
+source:
+  organization: Assessment-Models
+  repository: dea-assessment-technology
+release:
+  version: 1.0.0-alpha
+  reference: 67d6ecf429fee62a68999e7675e8d2c61374a237
+  commit: 67d6ecf429fee62a68999e7675e8d2c61374a237
+conformsTo:
+  contract:
+    id: opendea-assessment-metamodel
+    version: "1.0"
+status: candidate-for-migration
+dependencies:
+  - dea-catalog-assessment-tools
+  - dea-catalog-maturity-models
+notes: >-
+  Registered during ecosystem integration Phase 1 as
+  candidate-for-migration pending the CR-AM-01 Release 1 decision (fold
+  into v2-canonical vs freeze as legacy). No tags exist on the source
+  repository; the immutable reference is the main-tip commit SHA at
+  registration time. Porting to the federated contract handshake
+  (model.yaml, Level 1/2 CI) is Phase 2 work of the integration plan.
