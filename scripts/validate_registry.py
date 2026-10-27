@@ -195,6 +195,32 @@ def main() -> int:
             if dep not in seen_ids:
                 errors.append(f"{path.relative_to(ROOT)}: dependency {dep!r} is not a registered asset id")
 
+    # 5. supersession coherence (CR-AR-05)
+    for path, doc in records:
+        if not isinstance(doc, dict):
+            continue
+        sup = doc.get("superseded_by")
+        status = doc.get("status")
+        if sup is None:
+            if status in ("legacy", "superseded"):
+                errors.append(
+                    f"{path.relative_to(ROOT)}: status {status!r} SHOULD declare superseded_by (CR-AR-05)"
+                )
+            continue
+        if status == "active":
+            errors.append(
+                f"{path.relative_to(ROOT)}: active record MUST NOT declare superseded_by (CR-AR-05)"
+            )
+        if isinstance(sup, str):
+            if sup not in seen_ids:
+                errors.append(
+                    f"{path.relative_to(ROOT)}: superseded_by {sup!r} is not a registered asset id (CR-AR-05)"
+                )
+            if sup == doc.get("id"):
+                errors.append(
+                    f"{path.relative_to(ROOT)}: superseded_by references itself (CR-AR-05)"
+                )
+
     if errors:
         print(f"FAIL — {len(errors)} error(s):")
         for e in errors:
@@ -207,7 +233,8 @@ def main() -> int:
     print(f"OK — {len(records)} registration record(s) valid "
           f"({summary}) "
           f"[schema, immutable refs, unique ids, resolvable deps, "
-          f"asset_class shim, type↔class coherence, axes coherence]")
+          f"asset_class shim, type↔class coherence, axes coherence, "
+          f"supersession coherence]")
     return 0
 
 

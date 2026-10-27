@@ -1,5 +1,12 @@
 # Changelog
 
+## [Unreleased] — CR-AR-05: machine-readable supersession
+
+### Added
+- `superseded_by` field on registration records (schema, CR-AR-05): a registered asset id or an external canonical target (`organization` + `repository` [+ `path`]).
+- Validator rule 5 — supersession coherence: string form must resolve to a registered id; no self-reference; `active` records must not declare supersession; `legacy`/`superseded` records should declare it.
+- Both legacy catalog records now declare machine-readable supersession toward the v2 canonical architecture in `technehub-labs/dea-metamodel`.
+
 ## [Unreleased] — CR-AR-01 Phase 1: Scope extension
 
 ### Added

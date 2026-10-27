@@ -8,6 +8,7 @@
 | [CR-AR-01 Phase 1](./CR-AR-01.md#phase-plan) | Scope extension runtime — discriminator + axes + shim | Proposed | 2026-08-26 | (Phase 1 — pending merge) |
 | [CR-AR-01-xref-dea-semantic-architecture](./CR-AR-01-xref-dea-semantic-architecture.md) | Cross-ref: CR-AR-01 ↔ CR-ESA-01 (dea-semantic-architecture) | Proposed | 2026-08-26 | (Phase 0) |
 | [CR-AR-01-xref-dea-ontology](./CR-AR-01-xref-dea-ontology.md) | Cross-ref: CR-AR-01 ↔ CR-EO-01 (dea-ontology) | Proposed | 2026-08-26 | (Phase 0) |
+| [CR-AR-05](./CR-AR-05.md) | Machine-readable supersession (superseded_by field + validator coherence) | Proposed | 2026-10-27 | (this PR) |
 
 ## Pipeline
 
