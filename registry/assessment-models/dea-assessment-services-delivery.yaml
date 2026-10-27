@@ -13,9 +13,9 @@ source:
   organization: Assessment-Models
   repository: dea-assessment-services-delivery
 release:
-  version: 1.0.0-alpha
-  reference: 94e5863d62111d1e4af14ca02e247657a5e49687
-  commit: 94e5863d62111d1e4af14ca02e247657a5e49687
+  version: 1.1.0-alpha
+  reference: v1.1.0-alpha
+  commit: 1fd09854259995a63db1916c35c8518b33a10826
 conformsTo:
   contract:
     id: opendea-assessment-metamodel
