@@ -1,4 +1,4 @@
-# assessment-registry
+# Assessment Registry
 
 **The ecosystem integration spine for OpenDEA-compatible assets** (CR-AM-11 §10 + CR-AR-01 §Scope).
 
