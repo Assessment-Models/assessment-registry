@@ -1,0 +1,52 @@
+# Registration record for the maturity-components repository (CR-AM-06).
+#
+# The ecosystem's reusable-component repository — taxonomy class
+# Reusable components (GOVERNANCE.md). First repository created under the
+# org's taxonomy naming. One release; the component inventory ships with
+# the release (components/ in the source repository).
+id: maturity-components
+asset_class: assessment
+type: component
+name: Maturity Components
+description: >-
+  Reusable maturity components (CR-AM-10): canonical, versioned
+  dimension packages published for by-reference consumption via explicit
+  kinds (import / extend / override). Contains no scoring or scale
+  semantics (CR-AM-11 section 19). First release: the four dimension
+  packages published by the Digital Transformation composite model.
+source:
+  organization: Assessment-Models
+  repository: maturity-components
+release:
+  version: 1.0.0
+  reference: v1.0.0
+conformsTo:
+  contract:
+    id: opendea-assessment-metamodel
+    version: "1.0"
+status: active
+components:
+  - id: digital-culture
+    type: dimension-package
+    version: 1.0.0
+    reference: v1.0.0
+  - id: technology-adoption
+    type: dimension-package
+    version: 1.0.0
+    reference: v1.0.0
+  - id: operations-modernization
+    type: dimension-package
+    version: 1.0.0
+    reference: v1.0.0
+  - id: services-delivery
+    type: dimension-package
+    version: 1.0.0
+    reference: v1.0.0
+notes: >-
+  Established by CR-AM-06 (First-Class Component Registry). Provenance:
+  the four packages are extracted from the OpenDEA Component Registry at
+  the metamodel reference pinned in the repository's model.yaml
+  (8bf37e531a93a7fccac950c260be7380ae7224af at establishment). Consumers
+  reference component releases from this repository via CR-AM-11 section
+  20 component references; kinds remain consumer-scoped (CR-AM-10
+  section 4).
