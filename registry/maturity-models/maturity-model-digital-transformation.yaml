@@ -19,7 +19,7 @@ source:
   repository: maturity-model-digital-transformation
 release:
   version: 1.0.0
-  reference: 1e1a16d75c04adf1038c52cb819573b1ed1c1f61
+  reference: v1.0.0
   commit: 1e1a16d75c04adf1038c52cb819573b1ed1c1f61
 conformsTo:
   contract:
@@ -30,22 +30,22 @@ components:
   - id: digital-culture
     type: maturity-component
     version: 1.0.0
-    reference: 1e1a16d75c04adf1038c52cb819573b1ed1c1f61
+    reference: v1.0.0
   - id: technology-adoption
     type: maturity-component
     version: 1.0.0
-    reference: 1e1a16d75c04adf1038c52cb819573b1ed1c1f61
+    reference: v1.0.0
   - id: operations-modernization
     type: maturity-component
     version: 1.0.0
-    reference: 1e1a16d75c04adf1038c52cb819573b1ed1c1f61
+    reference: v1.0.0
   - id: services-delivery
     type: maturity-component
     version: 1.0.0
-    reference: 1e1a16d75c04adf1038c52cb819573b1ed1c1f61
+    reference: v1.0.0
 notes: >-
-  Registered at the Phase 4 head commit; no release tag exists yet on the
-  source repository. Replace the SHA reference with the v1.0.0 tag when the
-  repository ships its first release. The components are imported from the
-  OpenDEA Component Registry (dea:component-*) with explicit kind fields per
-  CR-AM-10 section 4 (import / extend / override).
+  Release reference is the v1.0.0 tag (peels to the registered commit
+  1e1a16d75c04adf1038c52cb819573b1ed1c1f61). Component references resolve to
+  the component packages published in Assessment-Models/maturity-components
+  v1.0.0 (CR-AM-11 sections 18-20); the model.yaml carries the kinded source
+  references (import / extend / override per CR-AM-10 section 4).

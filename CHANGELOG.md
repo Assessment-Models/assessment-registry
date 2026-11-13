@@ -1,5 +1,20 @@
 # Changelog
 
+## [Unreleased] — CR-AM-11 Phase 5: component reuse across models
+
+### Changed
+
+- `registry/maturity-models/maturity-model-digital-transformation.yaml`:
+  release reference is now the immutable `v1.0.0` tag (peels to the previously
+  registered commit 1e1a16d…), and the four component references point at the
+  `v1.0.0` release of `Assessment-Models/maturity-components` instead of a
+  placeholder SHA (§12/§20 immutable references).
+- `registry/maturity-models/maturity-model-operations.yaml`: declares reuse of
+  the `operations-modernization` component (v1.0.0 @ v1.0.0). With
+  maturity-model-digital-transformation, this makes `operations-modernization`
+  the first component reused by two independently versioned models — the
+  CR-AM-11 Phase 5 exit criterion.
+
 ## [Unreleased] — CR-AR-05 follow-up: supersession resolution
 
 ### Added
