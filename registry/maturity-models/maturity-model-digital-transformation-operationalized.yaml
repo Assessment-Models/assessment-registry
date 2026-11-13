@@ -1,0 +1,54 @@
+id: maturity-model-digital-transformation-operationalized
+asset_class: assessment
+type: maturity-model
+name: Digital Transformation Operationalized Maturity & Assessment Model
+description: 'Digital-business maturity and assessment model - capability assessment asset. Positions
+  digital transformation as the reimagining of the organization''s business and operating model as a digital
+  business: advanced digital technology adoption (AI, agentic AI, autonomous systems, composable cloud-native
+  platforms, digital twins), novel operating models across all operating concerns, customer- and ecosystem-centric
+  digital strategy, and a deliberate working model between humans and software. 6 dimensions / 23 sub-dimensions
+  / 70 criteria, 350 evidence anchors, 12 transversal levers.'
+source:
+  organization: Assessment-Models
+  repository: maturity-model-digital-transformation-operationalized
+release:
+  version: 1.0.1
+  reference: v1.0.1
+  commit: 3082ccd0b87364d83f324082cf375d61e5c0d69c
+conformsTo:
+  contract:
+    id: maturity-scale-contract
+    version: '1.0'
+status: active
+compatibility:
+  required_axes:
+  - scoring
+  - vocabulary
+  - examples
+  - schema
+  - runner
+  - governance
+  declared_axes:
+    scoring: 'The model declares its scoring model: a model-owned five-level scale (maturity/scale.yaml)
+      scored against the canonical v2 band instance dea:maturity-bands-v2 v1.0.0 (non-linear band widths
+      20/25/25/18/12, per-level effort multipliers 1.0-6.0).'
+    vocabulary: 'The model uses the governed OpenDEA vocabulary published in technehub-labs/dea-metamodel;
+      dimension and criterion identifiers carry the dea: namespace.'
+    examples: The model ships a worked scoring example (examples/*.yaml) demonstrating aggregation, canonical
+      band resolution and the effort-adjusted value.
+    schema: The model declares its structure in model.yaml (CR-AM-11 §15 contract handshake) validated
+      against the published model-manifest.schema.json, and its scale in maturity/scale.yaml validated
+      against the published maturity-scale.schema.json.
+    runner: The model is executed by python scripts/local_validate.py, run in CI by .github/workflows/local-model-ci.yml
+      (Level 1) and the reusable Level 2 contract-conformance workflow from Assessment-Models/assessment-ci.
+    governance: 'The model declares lifecycle status, owner and steward in maturity/model/*.yaml, and
+      change control in CONTRIBUTING.md with semver: MAJOR for a level or band definition change, MINOR
+      for a new dimension or criterion, PATCH for clarifications.'
+notes: The canonical model id is dea:maturity-digital-transformation-operationalized. This is a DISTINCT
+  asset from the existing maturity-model-digital-transformation (a composite model with no criteria register);
+  the two are not in a supersession relationship. Content is carried verbatim from Assessment-Models/dea-catalog-maturity-models
+  maturity-models/v1-alpha/digital-transformation-operationalized.yaml (proposal 0003), including the
+  level_correlation block that maps each model level to the canonical L0..L4 with the non-linear v2 ranges
+  and effort multipliers. The catalog proposal carries status PROPOSED; the model is published here as
+  an independently versioned capability assessment asset so that the catalogue entry and the canonical
+  model have one home. Scoring is against the canonical v2 band instance dea:maturity-bands-v2 v1.0.0.

@@ -1,52 +1,65 @@
-# Registration record for the maturity-components repository (CR-AM-06).
-#
-# The ecosystem's reusable-component repository — taxonomy class
-# Reusable components (GOVERNANCE.md). First repository created under the
-# org's taxonomy naming. One release; the component inventory ships with
-# the release (components/ in the source repository).
 id: maturity-components
 asset_class: assessment
 type: component
 name: Maturity Components
-description: >-
-  Reusable maturity components (CR-AM-10): canonical, versioned
-  dimension packages published for by-reference consumption via explicit
-  kinds (import / extend / override). Contains no scoring or scale
-  semantics (CR-AM-11 section 19). First release: the four dimension
-  packages published by the Digital Transformation composite model.
+description: 'Reusable, versioned maturity component packages - dimension, criteria, level-expectation
+  and evidence-requirement bundles consumed by maturity models under explicit import / extend / override
+  kinds (CR-AM-10 section 4). First release: the four CR-AM-10 dimension packages published by the Digital
+  Transformation composite model.'
 source:
   organization: Assessment-Models
   repository: maturity-components
 release:
-  version: 1.0.0
-  reference: v1.0.0
+  version: 1.0.1
+  reference: v1.0.1
+  commit: 1ea50bbb9dc37408313d6a31a70440a15d24fa63
 conformsTo:
   contract:
     id: opendea-assessment-metamodel
-    version: "1.0"
+    version: '1.0'
 status: active
 components:
-  - id: digital-culture
-    type: dimension-package
-    version: 1.0.0
-    reference: v1.0.0
-  - id: technology-adoption
-    type: dimension-package
-    version: 1.0.0
-    reference: v1.0.0
-  - id: operations-modernization
-    type: dimension-package
-    version: 1.0.0
-    reference: v1.0.0
-  - id: services-delivery
-    type: dimension-package
-    version: 1.0.0
-    reference: v1.0.0
-notes: >-
-  Established by CR-AM-06 (First-Class Component Registry). Provenance:
-  the four packages are extracted from the OpenDEA Component Registry at
-  the metamodel reference pinned in the repository's model.yaml
-  (8bf37e531a93a7fccac950c260be7380ae7224af at establishment). Consumers
-  reference component releases from this repository via CR-AM-11 section
-  20 component references; kinds remain consumer-scoped (CR-AM-10
-  section 4).
+- id: digital-culture
+  type: dimension-package
+  version: 1.0.0
+  reference: v1.0.0
+- id: technology-adoption
+  type: dimension-package
+  version: 1.0.0
+  reference: v1.0.0
+- id: operations-modernization
+  type: dimension-package
+  version: 1.0.0
+  reference: v1.0.0
+- id: services-delivery
+  type: dimension-package
+  version: 1.0.0
+  reference: v1.0.0
+compatibility:
+  required_axes:
+  - scoring
+  - vocabulary
+  - examples
+  - schema
+  - runner
+  - governance
+  declared_axes:
+    scoring: The component packages contain no scoring or scale semantics (CR-AM-11 section 19). Scoring
+      belongs to the consuming model.
+    vocabulary: 'Dimension identifiers carry the dea: namespace from the governed OpenDEA vocabulary in
+      technehub-labs/dea-metamodel.'
+    examples: The repository ships the published component packages themselves; each package is a worked,
+      referenceable unit rather than a model-level example.
+    schema: Package structure is declared in components/index.yaml and each package in components/*.yaml,
+      validated by the repository's Level 1 CI.
+    runner: The packages are consumed by reference; the repository ships scripts/local_validate.py for
+      its own Level 1 CI.
+    governance: Each package declares id, version, kind and publication metadata; provenance is the OpenDEA
+      Component Registry at the metamodel reference pinned in model.yaml.
+notes: 'Established by CR-AM-06 (First-Class Component Registry). This repository now exists: the record
+  previously pointed at a source.repository that returned HTTP 404, and no CI gate detected it because
+  the ecosystem validator makes no network call for assets without a model.yaml and classified the missing
+  manifest as informational. The repository carries the four dimension packages published by the Digital
+  Transformation composite model, plus the CR-AM-10 section 4 import / extend / override kinds. Consumers
+  reference component releases from this repository; kinds remain consumer-scoped. The repository id equals
+  the registration id - the repository name is a location, not an identity.'
