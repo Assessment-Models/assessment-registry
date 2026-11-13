@@ -17,6 +17,11 @@ conformsTo:
     id: maturity-scale-contract
     version: '1.0'
 status: active
+components:
+  - id: operations-modernization
+    type: maturity-component
+    version: 1.0.0
+    reference: v1.0.0
 compatibility:
   required_axes:
   - scoring
