@@ -1,0 +1,48 @@
+id: maturity-model-services-delivery
+asset_class: assessment
+type: maturity-model
+name: Services Delivery Maturity Model
+description: Services Delivery Maturity Model - capability assessment asset. Assesses time-to-market,
+  quality, customer outcomes, flow efficiency and team health. Scored on the canonical v2 band scheme;
+  level semantics carried verbatim from the dea-metamodel v2-beta port.
+source:
+  organization: Assessment-Models
+  repository: maturity-model-services-delivery
+release:
+  version: 1.0.0
+  reference: v1.0.0
+  commit: dbb4500f1a4c77efb5c4d1315663d0817a1fa923
+conformsTo:
+  contract:
+    id: maturity-scale-contract
+    version: '1.0'
+status: active
+compatibility:
+  required_axes:
+  - scoring
+  - vocabulary
+  - examples
+  - schema
+  - runner
+  - governance
+  declared_axes:
+    scoring: 'The model declares its scoring model: a model-owned five-level scale (maturity/scale.yaml)
+      scored against the canonical v2 band instance dea:maturity-bands-v2 v1.0.0 (non-linear band widths
+      20/25/25/18/12, per-level effort multipliers 1.0-6.0).'
+    vocabulary: 'The model uses the governed OpenDEA vocabulary published in technehub-labs/dea-metamodel;
+      dimension and criterion identifiers carry the dea: namespace.'
+    examples: The model ships a worked scoring example (examples/*.yaml) demonstrating aggregation, canonical
+      band resolution and the effort-adjusted value.
+    schema: The model declares its structure in model.yaml (CR-AM-11 §15 contract handshake) validated
+      against the published model-manifest.schema.json, and its scale in maturity/scale.yaml validated
+      against the published maturity-scale.schema.json.
+    runner: The model is executed by python scripts/local_validate.py, run in CI by .github/workflows/local-model-ci.yml
+      (Level 1) and the reusable Level 2 contract-conformance workflow from Assessment-Models/assessment-ci.
+    governance: 'The model declares lifecycle status, owner and steward in maturity/model/*.yaml, and
+      change control in CONTRIBUTING.md with semver: MAJOR for a level or band definition change, MINOR
+      for a new dimension or criterion, PATCH for clarifications.'
+notes: The canonical model id is dea:maturity-services-delivery. This is the v2 migration target for the
+  legacy v1-alpha services-delivery instrument (dea-assessment-services-delivery), which remains a separate
+  active asset. Level semantics are carried verbatim from technehub-labs/dea-metamodel assessment-models/maturity/v2-beta/services-delivery.yaml;
+  only the scoring fields differ from the frozen v1-alpha lineage. Scoring is against the canonical v2
+  band instance dea:maturity-bands-v2 v1.0.0.
