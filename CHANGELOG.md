@@ -1,5 +1,14 @@
 # Changelog
 
+## [Unreleased] — register maturity-model-digital-transformation v1.1.0-alpha
+
+### Changed
+- `registry/maturity-models/maturity-model-digital-transformation.yaml`: release bumped to
+  `1.1.0-alpha`, immutable reference = PR #6 merge commit `616f5c53bb52cedfce6635511f1674f90a6c1f1c`
+  (switch to the `v1.1.0-alpha` tag when created). Description/notes now cover the additive
+  operationalized model line (`maturity/operationalized/`, 6/23/70 criteria, canonical L-0..L-4
+  scale correlated to the composite scale). Validated against registration.schema.json.
+
 ## [Unreleased] — CR-AM-11 Phase 5: component reuse across models
 
 ### Changed
