@@ -1,52 +1,38 @@
+# Registration record for the Autonomous Operations maturity & assessment model.
+#
+# Phase-6 extraction (CR-AM-11 §26/§31) completed: the dedicated repository
+# maturity-model-autonomous-operations carries the criteria register verbatim
+# (157/157 vs the frozen catalog bundle — see its docs/RECONCILIATION.md) and is
+# the canonical home on v2 bands. The v1-alpha catalog entry is marked superseded_by.
 id: maturity-model-autonomous-operations
 asset_class: assessment
 type: maturity-model
 name: Autonomous Operations Maturity Model
-description: 'Autonomous Operations (AO) maturity and assessment model - capability assessment asset.
-  The enterprise operating model in which value streams are instrumented with AI, data and closed-loop
-  control so that agents and autonomous systems learn, self-govern and self-adapt, with intent driving
-  the closed loops. Harvested and cleaned from an industry AO maturity workbook (v1.8.0) and gap-filled
-  against 2025-26 industry sources: 6 dimensions, 32 sub-dimensions, 157 criteria.'
+description: >-
+  Autonomous Operations (AO) maturity and assessment model: the enterprise operating
+  model in which value streams are instrumented with AI, data and closed-loop control;
+  OODA (Observe-Orient-Decide-Act) closed loops driven by intent/goals shift decision and
+  execution burden from humans to machines. Five levels on the canonical v2 bands with
+  ambition-driving AO stages (Manual & Reactive, Instrumented & Assisted, Closed-Loop
+  Automated, Goal-Driven Autonomy, Self-Improving Ecosystem); AO Autonomy Index 0-100
+  scoring with weakest-link gate and effort-adjusted value; 6 dimensions / 32
+  sub-dimensions / 157 criteria; assessment method with evidence pack, assessor
+  independence and confidence levels.
 source:
   organization: Assessment-Models
   repository: maturity-model-autonomous-operations
 release:
   version: 1.0.1
   reference: v1.0.1
-  commit: 4c6d8658defa5974577db697cb5b565a320b4909
+  commit: ef25fe160911ff18c80287740b03aabf2b867760
 conformsTo:
   contract:
     id: maturity-scale-contract
-    version: '1.0'
+    version: "1.0"
 status: active
-compatibility:
-  required_axes:
-  - scoring
-  - vocabulary
-  - examples
-  - schema
-  - runner
-  - governance
-  declared_axes:
-    scoring: 'The model declares its scoring model: a model-owned five-level scale (maturity/scale.yaml)
-      scored against the canonical v2 band instance dea:maturity-bands-v2 v1.0.0 (non-linear band widths
-      20/25/25/18/12, per-level effort multipliers 1.0-6.0).'
-    vocabulary: 'The model uses the governed OpenDEA vocabulary published in technehub-labs/dea-metamodel;
-      dimension and criterion identifiers carry the dea: namespace.'
-    examples: The model ships a worked scoring example (examples/*.yaml) demonstrating aggregation, canonical
-      band resolution and the effort-adjusted value.
-    schema: The model declares its structure in model.yaml (CR-AM-11 §15 contract handshake) validated
-      against the published model-manifest.schema.json, and its scale in maturity/scale.yaml validated
-      against the published maturity-scale.schema.json.
-    runner: The model is executed by python scripts/local_validate.py, run in CI by .github/workflows/local-model-ci.yml
-      (Level 1) and the reusable Level 2 contract-conformance workflow from Assessment-Models/assessment-ci.
-    governance: 'The model declares lifecycle status, owner and steward in maturity/model/*.yaml, and
-      change control in CONTRIBUTING.md with semver: MAJOR for a level or band definition change, MINOR
-      for a new dimension or criterion, PATCH for clarifications.'
-notes: The canonical model id is dea:maturity-autonomous-operations. The model-owned scale binds the canonical
-  upstream scale id dea:scale-autonomous-operations-v1 at version 1.0.0 (status stable) rather than minting
-  a competing id - the catalog bundle declared the same id at 1.0.0-alpha with v1 band names and a six-anchor
-  ladder its own five-level scale never defined. The AO OODA stage names are carried as model-level metadata
-  on the register, not as a second level ladder. The criteria register (6 dimensions / 32 sub-dimensions
-  / 157 criteria) is carried verbatim from the frozen catalog bundle; the flat and bundle forms carry
-  an identical criterion-id set.
+notes: >-
+  Release reference is the immutable v1.0.1 tag (resolves to commit ef25fe1...) on the
+  canonical repo. Criteria register carried verbatim from the catalog bundle (157/157);
+  catalog v1-alpha entry marked superseded_by this repo (dea-catalog-maturity-models
+  PR #15). Enrichment PR (evaluation v2, questionnaire, docs) pending on branch
+  vibe/reconcile-f5ed1a of the source repo.
