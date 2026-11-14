@@ -21,8 +21,8 @@ source:
   repository: maturity-model-digital-transformation
 release:
   version: 1.1.0-alpha
-  reference: 616f5c53bb52cedfce6635511f1674f90a6c1f1
-  commit: 616f5c53bb52cedfce6635511f1674f90a6c1f1
+  reference: 616f5c53bb52cedfce6635511f1674f90a6c1f1c
+  commit: 616f5c53bb52cedfce6635511f1674f90a6c1f1c
 conformsTo:
   contract:
     id: maturity-scale-contract
@@ -47,7 +47,7 @@ components:
     reference: v1.0.0
 notes: >-
   v1.1.0-alpha reference is the immutable merge-commit SHA of PR #6
-  (616f5c53bb52cedfce6635511f1674f90a6c1f1, 2026-11-14); switch to the v1.1.0-alpha
+  (616f5c53bb52cedfce6635511f1674f90a6c1f1c, 2026-11-14); switch to the v1.1.0-alpha
   tag when the release tag is created. v1.0.0 history: reference v1.0.0 peeling to
   commit 1e1a16d75c04adf1038c52cb819573b1ed1c1f61. Component references resolve to
   the component packages published in Assessment-Models/maturity-components v1.0.0
