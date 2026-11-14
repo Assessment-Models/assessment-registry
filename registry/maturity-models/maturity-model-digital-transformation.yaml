@@ -1,26 +1,28 @@
-# Registration record for the Phase 4 first-model candidate (CR-AM-11 section 31).
+# Registration record for the digital-transformation domain model repository.
 #
-# The first independent, contract-conformant model in the ecosystem: it
-# demonstrates all three CI levels on one repository (Level 1 local-model CI,
-# Level 2 contract conformance via the reusable assessment-ci workflow,
-# Level 3 immutable-reference resolution via the registry).
+# v1.0.0: Phase 4 first-model candidate (CR-AM-11 section 31) — composite model
+# demonstrating all three CI levels on one repository.
+# v1.1.0-alpha: adds the operationalized model line (maturity/operationalized/)
+# via PR #6 — additive per AM-MODEL-REPOSITORY-STANDARD R1/R2; see
+# mappings/digital-transformation-operationalized.yaml in the source repo.
 id: maturity-model-digital-transformation
 asset_class: assessment
 type: maturity-model
 name: Digital Transformation Maturity Model
 description: >-
-  Composite maturity model spanning operations, technology and
-  services-delivery child models, plus its own dimensions. CR-AM-10 driving
-  use case; CR-AM-11 Phase 4 first-model candidate. Scores against the
-  OpenDEA EA reference instance (scale + evaluation + Benchmark 2026
-  baseline) as its anchor.
+  Digital-transformation domain model repository. v1.0.0 composite maturity model
+  spanning operations, technology and services-delivery child models (CR-AM-10 /
+  CR-AM-11 Phase 4 first-model candidate), anchored on the OpenDEA EA reference
+  instance. v1.1.0-alpha adds the Digital Transformation Operationalized model
+  line (6 dimensions / 23 sub-dimensions / 70 evidence-anchored criteria, canonical
+  L-0..L-4 scale with value-named levels correlated to the composite scale).
 source:
   organization: Assessment-Models
   repository: maturity-model-digital-transformation
 release:
-  version: 1.0.0
-  reference: v1.0.0
-  commit: 1e1a16d75c04adf1038c52cb819573b1ed1c1f61
+  version: 1.1.0-alpha
+  reference: 616f5c53bb52cedfce6635511f1674f90a6c1f1
+  commit: 616f5c53bb52cedfce6635511f1674f90a6c1f1
 conformsTo:
   contract:
     id: maturity-scale-contract
@@ -44,8 +46,14 @@ components:
     version: 1.0.0
     reference: v1.0.0
 notes: >-
-  Release reference is the v1.0.0 tag (peels to the registered commit
-  1e1a16d75c04adf1038c52cb819573b1ed1c1f61). Component references resolve to
-  the component packages published in Assessment-Models/maturity-components
-  v1.0.0 (CR-AM-11 sections 18-20); the model.yaml carries the kinded source
-  references (import / extend / override per CR-AM-10 section 4).
+  v1.1.0-alpha reference is the immutable merge-commit SHA of PR #6
+  (616f5c53bb52cedfce6635511f1674f90a6c1f1, 2026-11-14); switch to the v1.1.0-alpha
+  tag when the release tag is created. v1.0.0 history: reference v1.0.0 peeling to
+  commit 1e1a16d75c04adf1038c52cb819573b1ed1c1f61. Component references resolve to
+  the component packages published in Assessment-Models/maturity-components v1.0.0
+  (CR-AM-11 sections 18-20); the model.yaml carries the kinded source references
+  (import / extend / override per CR-AM-10 section 4). The operationalized line's
+  six dimension components are local to the model repo (kind: extend); publishing
+  them to maturity-components is a follow-up. Catalog twin:
+  dea:maturity-digital-transformation-operationalized in dea-catalog-maturity-models
+  (PRs #6/#10/#12, proposal 0003).
