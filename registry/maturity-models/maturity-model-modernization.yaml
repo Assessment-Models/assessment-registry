@@ -10,9 +10,9 @@ source:
   organization: Assessment-Models
   repository: maturity-model-modernization
 release:
-  version: 1.0.0
-  reference: v1.0.0
-  commit: 57d8acf3c59d8312f22c8361f1ed860ee0248c5e
+  version: 1.1.0
+  reference: v1.1.0
+  commit: b58e0b08eacc82d345cae120d7ee1c7c24ca82cb
 conformsTo:
   contract:
     id: maturity-scale-contract
@@ -27,18 +27,21 @@ compatibility:
   - runner
   - governance
   declared_axes:
-    scoring: 'The model declares its scoring model: a model-owned five-level scale (maturity/scale.yaml)
-      scored against the canonical v2 band instance dea:maturity-bands-v2 v1.0.0 (non-linear band widths
-      20/25/25/18/12, per-level effort multipliers 1.0-6.0).'
+    scoring: 'The model declares its scoring model: a criteria catalog (maturity/model/criteria.yaml, 15
+      criteria across 4 practice areas with per-criterion weights and observable L0-L4 anchors) aggregated
+      by weighted mean (maturity/model/scoring.yaml) against the canonical v2 band instance
+      dea:maturity-bands-v2 v1.0.0 (non-linear band widths 20/25/25/18/12, per-level effort multipliers
+      1.0-6.0), yielding the band resolution and the effort-adjusted value.'
     vocabulary: 'The model uses the governed OpenDEA vocabulary published in technehub-labs/dea-metamodel;
       dimension and criterion identifiers carry the dea: namespace.'
-    examples: The model ships a worked scoring example (examples/*.yaml) demonstrating aggregation, canonical
-      band resolution and the effort-adjusted value.
+    examples: The model ships two worked scoring examples (examples/*.yaml) demonstrating catalog-weighted
+      aggregation, canonical band resolution and the effort-adjusted value.
     schema: The model declares its structure in model.yaml (CR-AM-11 §15 contract handshake) validated
       against the published model-manifest.schema.json, and its scale in maturity/scale.yaml validated
       against the published maturity-scale.schema.json.
-    runner: The model is executed by python scripts/local_validate.py, run in CI by .github/workflows/local-model-ci.yml
-      (Level 1) and the reusable Level 2 contract-conformance workflow from Assessment-Models/assessment-ci.
+    runner: The model is validated by python scripts/local_validate.py and scored by python scripts/score_assessment.py,
+      run in CI by .github/workflows/local-model-ci.yml (Level 1) and the reusable Level 2 contract-conformance
+      workflow from Assessment-Models/assessment-ci.
     governance: 'The model declares lifecycle status, owner and steward in maturity/model/*.yaml, and
       change control in CONTRIBUTING.md with semver: MAJOR for a level or band definition change, MINOR
       for a new dimension or criterion, PATCH for clarifications.'
@@ -47,4 +50,6 @@ notes: 'The canonical model id is dea:maturity-modernization. This is the v2 mig
   asset: the legacy record is an assessment instrument, this record is a maturity model. Level semantics
   (characteristics, exit criteria, evidence) are carried verbatim from technehub-labs/dea-metamodel assessment-models/maturity/v2-beta/modernization.yaml;
   only the scoring fields differ from the frozen v1-alpha lineage. Scoring is against the canonical v2
-  band instance dea:maturity-bands-v2 v1.0.0.'
+  band instance dea:maturity-bands-v2 v1.0.0. As of 1.1.0 the model carries a criteria catalog (15 criteria
+  across 4 practice areas) and a weighted-mean scoring model; scale semantics remain verbatim and the
+  canonical bands remain the scoring reference.'
