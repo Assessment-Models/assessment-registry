@@ -12,7 +12,7 @@ source:
 release:
   version: 1.1.0
   reference: v1.1.0
-  commit: fed38e2d880434f2ca2278e57ce9be39178a4b99
+  commit: b58e0b08eacc82d345cae120d7ee1c7c24ca82cb
 conformsTo:
   contract:
     id: maturity-scale-contract
