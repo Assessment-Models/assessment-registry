@@ -2,7 +2,8 @@ id: maturity-model-operations
 asset_class: assessment
 type: maturity-model
 name: Operations Maturity Model
-description: Operations Maturity Model - capability assessment asset. Release 2.0.0 (CR-AM-13) assesses
+description: >-
+  Operations Maturity Model - capability assessment asset. Release 2.0.0 (CR-AM-13) assesses
   enterprise operations: value-stream & daily operations, capability orchestration, service & process
   management, workforce & ways of working, technology & infrastructure operations, and strategy alignment
   with the operating blueprint. Release 1.0.0 assessed incident response, observability, deployment
