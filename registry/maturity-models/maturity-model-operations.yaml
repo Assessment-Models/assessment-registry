@@ -2,9 +2,11 @@ id: maturity-model-operations
 asset_class: assessment
 type: maturity-model
 name: Operations Maturity Model
-description: Operations Maturity Model - capability assessment asset. Assesses incident response, observability,
-  deployment automation, SLOs and SRE practice. Scored on the canonical v2 band scheme; level semantics
-  carried verbatim from the dea-metamodel v2-beta port.
+description: Operations Maturity Model - capability assessment asset. Release 1.0.0 assesses incident response,
+  observability, deployment automation, SLOs and SRE practice, scored on the canonical v2 band scheme. The v2
+  line (CR-AM-13, merged to main, pending release) expands the model to enterprise operations: value-stream &
+  daily operations, capability orchestration, service & process management, workforce & ways of working,
+  technology & infrastructure operations, and strategy alignment with the operating blueprint.
 source:
   organization: Assessment-Models
   repository: maturity-model-operations
@@ -22,6 +24,13 @@ components:
     type: maturity-component
     version: 1.0.0
     reference: v1.0.0
+dependencies:
+  - maturity-model-autonomous-operations
+  - maturity-model-services-delivery
+  - maturity-model-technology
+  - maturity-model-digital-transformation
+  - maturity-model-digital-transformation-operationalized
+  - maturity-model-modernization
 compatibility:
   required_axes:
   - scoring
@@ -33,21 +42,34 @@ compatibility:
   declared_axes:
     scoring: 'The model declares its scoring model: a model-owned five-level scale (maturity/scale.yaml)
       scored against the canonical v2 band instance dea:maturity-bands-v2 v1.0.0 (non-linear band widths
-      20/25/25/18/12, per-level effort multipliers 1.0-6.0).'
+      20/25/25/18/12, per-level effort multipliers 1.0-6.0). The v2 line adds a weighted-mean evaluation
+      model (maturity/evaluation.yaml) producing an Operations Index 0-100 with evidence-confidence
+      multipliers.'
     vocabulary: 'The model uses the governed OpenDEA vocabulary published in technehub-labs/dea-metamodel;
-      dimension and criterion identifiers carry the dea: namespace.'
+      dimension and criterion identifiers carry the dea: namespace. v2 criterion IDs (OPS-D#-SD#-C##)
+      are permanent benchmarking keys.'
     examples: The model ships a worked scoring example (examples/*.yaml) demonstrating aggregation, canonical
-      band resolution and the effort-adjusted value.
+      band resolution and the effort-adjusted value; the v2 line adds a worked campaign example
+      (campaigns/baseline-vs-target-2026.yaml) demonstrating the benchmark delta format.
     schema: The model declares its structure in model.yaml (CR-AM-11 §15 contract handshake) validated
-      against the published model-manifest.schema.json, and its scale in maturity/scale.yaml validated
-      against the published maturity-scale.schema.json.
+      against the published model-manifest.schema.json, its scale in maturity/scale.yaml validated
+      against the published maturity-scale.schema.json, and its evidence records against
+      maturity/evidence/schema.yaml. Touchpoint declarations live in touchpoints.yaml per CR-AM-13 §5.
     runner: The model is executed by python scripts/local_validate.py, run in CI by .github/workflows/local-model-ci.yml
       (Level 1) and the reusable Level 2 contract-conformance workflow from Assessment-Models/assessment-ci.
     governance: 'The model declares lifecycle status, owner and steward in maturity/model/*.yaml, and
       change control in CONTRIBUTING.md with semver: MAJOR for a level or band definition change, MINOR
-      for a new dimension or criterion, PATCH for clarifications.'
-notes: The canonical model id is dea:maturity-operations. This is the v2 migration target for the legacy
+      for a new dimension or criterion, PATCH for clarifications. CR-AM-13 adds the living-program rules:
+      criterion IDs are permanent keys; breaking ID changes require a minor bump and a published migration
+      map (migrations/v1-to-v2-map.yaml).'
+notes: >-
+  The canonical model id is dea:maturity-operations. This is the v2 migration target for the legacy
   v1-alpha operations instrument (dea-assessment-operations), which remains a separate active asset. Level
   semantics are carried verbatim from technehub-labs/dea-metamodel assessment-models/maturity/v2-beta/operations.yaml;
   only the scoring fields differ from the frozen v1-alpha lineage. Scoring is against the canonical v2
-  band instance dea:maturity-bands-v2 v1.0.0.
+  band instance dea:maturity-bands-v2 v1.0.0. CR-AM-13 (Phases 0-3, merged to main): enterprise expansion
+  to six dimensions / 45 criteria with v1 lineage flags, questionnaire, evaluation model, evidence schema,
+  blueprint-deduction rules, v1-to-v2 migration map, and the Handshake & Touchpoint Model (touchpoints.yaml)
+  with six declared peer touchpoints; dependencies listed above are machine-checked. The v2 content ships
+  from the next tagged release (2.0.0 line); narrative companion notes in dependencies/maturity-model-operations.md
+  and provisional compatibility declaration in compatibility/operations-touchpoints-v1-draft.yaml.
