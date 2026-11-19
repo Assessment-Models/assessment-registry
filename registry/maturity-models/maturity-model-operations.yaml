@@ -2,18 +2,18 @@ id: maturity-model-operations
 asset_class: assessment
 type: maturity-model
 name: Operations Maturity Model
-description: Operations Maturity Model - capability assessment asset. Release 1.0.0 assesses incident response,
-  observability, deployment automation, SLOs and SRE practice, scored on the canonical v2 band scheme. The v2
-  line (CR-AM-13, merged to main, pending release) expands the model to enterprise operations: value-stream &
-  daily operations, capability orchestration, service & process management, workforce & ways of working,
-  technology & infrastructure operations, and strategy alignment with the operating blueprint.
+description: Operations Maturity Model - capability assessment asset. Release 2.0.0 (CR-AM-13) assesses
+  enterprise operations: value-stream & daily operations, capability orchestration, service & process
+  management, workforce & ways of working, technology & infrastructure operations, and strategy alignment
+  with the operating blueprint. Release 1.0.0 assessed incident response, observability, deployment
+  automation, SLOs and SRE practice; both are scored on the canonical v2 band scheme.
 source:
   organization: Assessment-Models
   repository: maturity-model-operations
 release:
-  version: 1.0.0
-  reference: v1.0.0
-  commit: b4e556a40a04a6856dc63c46e05dae172419ea11
+  version: 2.0.0
+  reference: v2.0.0
+  commit: fc82783e47c45094728613f9f75ca6ce8a07eff6
 conformsTo:
   contract:
     id: maturity-scale-contract
@@ -67,9 +67,11 @@ notes: >-
   v1-alpha operations instrument (dea-assessment-operations), which remains a separate active asset. Level
   semantics are carried verbatim from technehub-labs/dea-metamodel assessment-models/maturity/v2-beta/operations.yaml;
   only the scoring fields differ from the frozen v1-alpha lineage. Scoring is against the canonical v2
-  band instance dea:maturity-bands-v2 v1.0.0. CR-AM-13 (Phases 0-3, merged to main): enterprise expansion
-  to six dimensions / 45 criteria with v1 lineage flags, questionnaire, evaluation model, evidence schema,
-  blueprint-deduction rules, v1-to-v2 migration map, and the Handshake & Touchpoint Model (touchpoints.yaml)
-  with six declared peer touchpoints; dependencies listed above are machine-checked. The v2 content ships
-  from the next tagged release (2.0.0 line); narrative companion notes in dependencies/maturity-model-operations.md
+  band instance dea:maturity-bands-v2 v1.0.0. CR-AM-13 released as 2.0.0 (2026-11-19, PR #7, merge commit
+  fc82783e): enterprise expansion to six dimensions, 19 sub-dimensions, 51 criteria with v1 lineage flags
+  (this final count supersedes the provisional 45 noted while the change was in flight), questionnaire,
+  evaluation model, evidence schema, blueprint-deduction rules, v1-to-v2 migration map, and the Handshake
+  & Touchpoint Model (touchpoints.yaml v0.2.0) with six declared peer touchpoints; dependencies listed
+  above are machine-checked. Release 1.0.0 (commit b4e556a40a04a6856dc63c46e05dae172419ea11) remains
+  resolvable for v1 assessment records. Narrative companion notes in dependencies/maturity-model-operations.md
   and provisional compatibility declaration in compatibility/operations-touchpoints-v1-draft.yaml.
