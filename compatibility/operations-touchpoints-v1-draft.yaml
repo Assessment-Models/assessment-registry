@@ -1,0 +1,53 @@
+# =============================================================================
+# compatibility/operations-touchpoints-v1-draft.yaml — CR-AM-13 Phase 4
+# PROVISIONAL declaration: syntax follows the record conventions pending the
+# compatibility.schema.json publication in technehub-labs/dea-metamodel
+# (CR-AM-11 §17). Ecosystem CI treats this as narrative until the schema lands.
+# =============================================================================
+id: compatibility-operations-touchpoints-v1
+status: provisional
+basis:
+  contract:
+    id: maturity-touchpoint-contract
+    version: 0.1.0-draft
+    note: publication requested in technehub-labs/dea-metamodel#213
+asset: maturity-model-operations
+declared:
+- peer: maturity-model-autonomous-operations
+  peer_release: v1.0.1
+  touchpoint_id: tp-ops-x-autonomous-operations
+  direction: feeds
+  operations_interoperates_from: 2.0.0 (draft line merged to main)
+  mirror: { repo: maturity-model-autonomous-operations, pr: 5, state: merged, release_tag: pending }
+- peer: maturity-model-services-delivery
+  peer_release: v1.0.0
+  touchpoint_id: tp-ops-x-services-delivery
+  direction: feeds
+  note: mapping pending-peer-register; seeds at the peer's register adoption
+- peer: maturity-model-technology
+  peer_release: v1.0.0
+  touchpoint_id: tp-ops-x-technology
+  direction: consumes
+  note: mapping pending-peer-register; seeds at the peer's register adoption
+- peer: maturity-model-digital-transformation
+  peer_release: registered composite release
+  touchpoint_id: tp-ops-x-digital-transformation
+  direction: consumes
+  mirror: { repo: maturity-model-digital-transformation, pr: 7, state: merged, release_tag: pending }
+  note: component criterion IDs resolve at the reciprocity merge
+- peer: maturity-model-digital-transformation-operationalized
+  peer_release: v1.0.1
+  touchpoint_id: tp-ops-x-dt-operationalized
+  direction: consumes
+  mirror: { repo: maturity-model-digital-transformation-operationalized, pr: 4, state: merged, release_tag: pending }
+- peer: maturity-model-modernization
+  peer_release: v1.1.0
+  touchpoint_id: tp-ops-x-modernization
+  direction: shared-component
+  component: { repository: Assessment-Models/maturity-components, id: operations-modernization, reference: v1.0.0 }
+  mirror: { repo: maturity-model-modernization, pr: 4, state: merged, release_tag: pending }
+compatibility_rule: >-
+  Touchpoint mappings bind criteria across models without coupling releases:
+  neither side's SemVer is constrained by the other's. The reciprocity pair
+  (touchpoints.yaml <-> mirror) must cite the same contract version; a criterion
+  renumbering in either peer requires only a mapping update.
