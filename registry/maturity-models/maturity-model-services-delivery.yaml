@@ -4,14 +4,16 @@ type: maturity-model
 name: Services Delivery Maturity Model
 description: Services Delivery Maturity Model - capability assessment asset. Assesses time-to-market,
   quality, customer outcomes, flow efficiency and team health. Scored on the canonical v2 band scheme;
-  level semantics carried verbatim from the dea-metamodel v2-beta port.
+  level semantics carried verbatim from the dea-metamodel v2-beta port. Release 1.1.0 ships a seeded
+  criteria register draft (16 criteria, DLV-* permanent IDs) and the operations touchpoint mirror
+  (CR-AM-13 Phase 4).
 source:
   organization: Assessment-Models
   repository: maturity-model-services-delivery
 release:
-  version: 1.0.0
-  reference: v1.0.0
-  commit: dbb4500f1a4c77efb5c4d1315663d0817a1fa923
+  version: 1.1.0
+  reference: v1.1.0
+  commit: 63466ed1260cddc731feece3104660be0d151964
 conformsTo:
   contract:
     id: maturity-scale-contract
@@ -30,19 +32,29 @@ compatibility:
       scored against the canonical v2 band instance dea:maturity-bands-v2 v1.0.0 (non-linear band widths
       20/25/25/18/12, per-level effort multipliers 1.0-6.0).'
     vocabulary: 'The model uses the governed OpenDEA vocabulary published in technehub-labs/dea-metamodel;
-      dimension and criterion identifiers carry the dea: namespace.'
+      dimension and criterion identifiers carry the dea: namespace. Register criterion IDs (DLV-*) are
+      permanent benchmarking keys.'
     examples: The model ships a worked scoring example (examples/*.yaml) demonstrating aggregation, canonical
       band resolution and the effort-adjusted value.
     schema: The model declares its structure in model.yaml (CR-AM-11 §15 contract handshake) validated
       against the published model-manifest.schema.json, and its scale in maturity/scale.yaml validated
-      against the published maturity-scale.schema.json.
+      against the published maturity-scale.schema.json. Touchpoint declarations live in touchpoints.yaml
+      per CR-AM-13 §5.
     runner: The model is executed by python scripts/local_validate.py, run in CI by .github/workflows/local-model-ci.yml
       (Level 1) and the reusable Level 2 contract-conformance workflow from Assessment-Models/assessment-ci.
     governance: 'The model declares lifecycle status, owner and steward in maturity/model/*.yaml, and
       change control in CONTRIBUTING.md with semver: MAJOR for a level or band definition change, MINOR
       for a new dimension or criterion, PATCH for clarifications.'
-notes: The canonical model id is dea:maturity-services-delivery. This is the v2 migration target for the
+notes: >-
+  The canonical model id is dea:maturity-services-delivery. This is the v2 migration target for the
   legacy v1-alpha services-delivery instrument (dea-assessment-services-delivery), which remains a separate
   active asset. Level semantics are carried verbatim from technehub-labs/dea-metamodel assessment-models/maturity/v2-beta/services-delivery.yaml;
   only the scoring fields differ from the frozen v1-alpha lineage. Scoring is against the canonical v2
-  band instance dea:maturity-bands-v2 v1.0.0.
+  band instance dea:maturity-bands-v2 v1.0.0. Release 1.1.0 (CR-AM-13 Phase 4, 2026-11-19, PR #5, merge
+  commit 63466ed1260cddc731feece3104660be0d151964): seeded criteria register (five dimensions, 10
+  sub-dimensions, 16 criteria; DLV-* criterion IDs are permanent benchmarking keys; draft-by-design —
+  questionnaire and weights remain with the model owners at stable promotion per CR-AM-13 §8) and
+  touchpoints.yaml v0.1.0 mirror tp-services-delivery-x-operations consuming operations D1 evidence
+  (DLV-D4-SD1-C01 <-> OPS-D1-SD1-C01, DLV-D4-SD2-C03 <-> OPS-D1-SD2-C04). Release 1.0.0 (commit
+  dbb4500f1a4c77efb5c4d1315663d0817a1fa923) remains resolvable. Touchpoint declarations remain
+  status: draft until maturity-touchpoint-contract publishes in technehub-labs/dea-metamodel (issue #213).
