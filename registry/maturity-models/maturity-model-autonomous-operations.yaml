@@ -22,9 +22,9 @@ source:
   organization: Assessment-Models
   repository: maturity-model-autonomous-operations
 release:
-  version: 1.0.1
-  reference: v1.0.1
-  commit: ef25fe160911ff18c80287740b03aabf2b867760
+  version: 2.0.0
+  reference: 8ccf747e483d3c1bd82a46d1a5bb09a045a1e81d
+  commit: 8ccf747e483d3c1bd82a46d1a5bb09a045a1e81d
 conformsTo:
   contract:
     id: maturity-scale-contract
@@ -36,3 +36,4 @@ notes: >-
   catalog v1-alpha entry marked superseded_by this repo (dea-catalog-maturity-models
   PR #15). Enrichment PR (evaluation v2, questionnaire, docs) pending on branch
   vibe/reconcile-f5ed1a of the source repo.
+  Release 2.0.0 (2026-11-22): adopts the canonical scale level renumbering — L-0 Not Assessed + L-1..L-5 per dea-metamodel #214 (breaking; adoption pending canonical ratification), following the autonomous-operations precedent. Mapping: old L0/L-0 -> L-1 .. old L4 -> L-5; band instance dea:maturity-bands-v2 v1.0.0 unchanged (ids, ranges, effort multipliers); historical index values and bands remain valid. Immutable reference: merge of the cr/scale-level-renumbering branch, commit 8ccf747e483d3c1bd82a46d1a5bb09a045a1e81d.

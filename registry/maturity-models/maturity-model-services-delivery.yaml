@@ -11,9 +11,9 @@ source:
   organization: Assessment-Models
   repository: maturity-model-services-delivery
 release:
-  version: 1.1.0
-  reference: v1.1.0
-  commit: 63466ed1260cddc731feece3104660be0d151964
+  version: 2.0.0
+  reference: 703f8ff2855e35aaff7785c2f1aafdcaa5fe81d2
+  commit: 703f8ff2855e35aaff7785c2f1aafdcaa5fe81d2
 conformsTo:
   contract:
     id: maturity-scale-contract
@@ -30,7 +30,7 @@ compatibility:
   declared_axes:
     scoring: 'The model declares its scoring model: a model-owned five-level scale (maturity/scale.yaml)
       scored against the canonical v2 band instance dea:maturity-bands-v2 v1.0.0 (non-linear band widths
-      20/25/25/18/12, per-level effort multipliers 1.0-6.0).'
+      20/25/25/18/12, per-level effort multipliers 1.0-6.0); release 2.0.0 adopts the canonical L-0 Not Assessed + L-1..L-5 renumbering (dea-metamodel #214, adoption pending ratification).'
     vocabulary: 'The model uses the governed OpenDEA vocabulary published in technehub-labs/dea-metamodel;
       dimension and criterion identifiers carry the dea: namespace. Register criterion IDs (DLV-*) are
       permanent benchmarking keys.'
@@ -57,4 +57,4 @@ notes: >-
   touchpoints.yaml v0.1.0 mirror tp-services-delivery-x-operations consuming operations D1 evidence
   (DLV-D4-SD1-C01 <-> OPS-D1-SD1-C01, DLV-D4-SD2-C03 <-> OPS-D1-SD2-C04). Release 1.0.0 (commit
   dbb4500f1a4c77efb5c4d1315663d0817a1fa923) remains resolvable. Touchpoint declarations remain
-  status: draft until maturity-touchpoint-contract publishes in technehub-labs/dea-metamodel (issue #213).
+  status: draft until maturity-touchpoint-contract publishes in technehub-labs/dea-metamodel (issue #213). Release 2.0.0 (2026-11-22): adopts the canonical scale level renumbering — L-0 Not Assessed + L-1..L-5 per dea-metamodel #214 (breaking; adoption pending canonical ratification), following the autonomous-operations precedent. Mapping: old L0/L-0 -> L-1 .. old L4 -> L-5; band instance dea:maturity-bands-v2 v1.0.0 unchanged (ids, ranges, effort multipliers); historical index values and bands remain valid. Immutable reference: merge of the cr/scale-level-renumbering branch, commit 703f8ff2855e35aaff7785c2f1aafdcaa5fe81d2.

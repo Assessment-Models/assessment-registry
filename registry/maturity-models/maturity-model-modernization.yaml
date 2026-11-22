@@ -52,4 +52,7 @@ notes: 'The canonical model id is dea:maturity-modernization. This is the v2 mig
   only the scoring fields differ from the frozen v1-alpha lineage. Scoring is against the canonical v2
   band instance dea:maturity-bands-v2 v1.0.0. As of 1.1.0 the model carries a criteria catalog (15 criteria
   across 4 practice areas) and a weighted-mean scoring model; scale semantics remain verbatim and the
-  canonical bands remain the scoring reference.'
+  canonical bands remain the scoring reference.
+  Release 2.0.0 (2026-11-22) adopts the canonical scale level renumbering — L-0 Not Assessed + L-1..L-5 per dea-metamodel #214 (breaking; adoption pending canonical ratification), following the autonomous-operations precedent. Mapping: old L0/L-0 -> L-1 .. old L4 -> L-5; band instance dea:maturity-bands-v2 v1.0.0 unchanged (ids, ranges, effort multipliers); historical index values and bands remain valid. Immutable reference: merge of the cr/scale-level-renumbering branch.
+'
+

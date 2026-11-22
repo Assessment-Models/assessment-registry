@@ -20,9 +20,9 @@ source:
   organization: Assessment-Models
   repository: maturity-model-digital-transformation
 release:
-  version: 1.1.0-alpha
-  reference: 616f5c53bb52cedfce6635511f1674f90a6c1f1c
-  commit: 616f5c53bb52cedfce6635511f1674f90a6c1f1c
+  version: 2.0.0
+  reference: 92691b6cc9d50cebefeeadd608dd96a7096d7868
+  commit: 92691b6cc9d50cebefeeadd608dd96a7096d7868
 conformsTo:
   contract:
     id: maturity-scale-contract
@@ -57,3 +57,4 @@ notes: >-
   them to maturity-components is a follow-up. Catalog twin:
   dea:maturity-digital-transformation-operationalized in dea-catalog-maturity-models
   (PRs #6/#10/#12, proposal 0003).
+  Release 2.0.0 (2026-11-22): adopts the canonical scale level renumbering — L-0 Not Assessed + L-1..L-5 per dea-metamodel #214 (breaking; adoption pending canonical ratification), following the autonomous-operations precedent. Mapping: old L0/L-0 -> L-1 .. old L4 -> L-5; band instance dea:maturity-bands-v2 v1.0.0 unchanged (ids, ranges, effort multipliers); historical index values and bands remain valid. Immutable reference: merge of the cr/scale-level-renumbering branch, commit 92691b6cc9d50cebefeeadd608dd96a7096d7868.
