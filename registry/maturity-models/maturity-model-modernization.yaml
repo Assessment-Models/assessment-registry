@@ -10,9 +10,9 @@ source:
   organization: Assessment-Models
   repository: maturity-model-modernization
 release:
-  version: 1.1.0
-  reference: v1.1.0
-  commit: b58e0b08eacc82d345cae120d7ee1c7c24ca82cb
+  version: 2.0.0
+  reference: 1e5ae43720706ed1543356c50703426b2a9934a0
+  commit: 1e5ae43720706ed1543356c50703426b2a9934a0
 conformsTo:
   contract:
     id: maturity-scale-contract
