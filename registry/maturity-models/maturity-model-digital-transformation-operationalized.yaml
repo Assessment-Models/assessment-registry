@@ -12,9 +12,9 @@ source:
   organization: Assessment-Models
   repository: maturity-model-digital-transformation-operationalized
 release:
-  version: 1.0.1
-  reference: v1.0.1
-  commit: 3082ccd0b87364d83f324082cf375d61e5c0d69c
+  version: 2.0.0
+  reference: 0b32c4ea56762a32ea8c01e11eedceef39b09909
+  commit: 0b32c4ea56762a32ea8c01e11eedceef39b09909
 conformsTo:
   contract:
     id: maturity-scale-contract
