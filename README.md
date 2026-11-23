@@ -69,8 +69,8 @@ assessment-registry/
 5. **Dependencies must resolve.** A record's `dependencies` entries must reference other registered asset ids.
 6. **asset_class declaration** (CR-AR-01 Phase 1). New records MUST declare `asset_class`. Pre-CR-AR-01 records are accepted without `asset_class` and default-infer to `assessment` via the backward-compat shim.
 7. **Type ↔ asset_class coherence** (CR-AR-01 Phase 1). A `type: maturity-model | assessment-model | assessment-tool | component` implies `asset_class: assessment`. A `type: semantic-architecture-asset` implies `asset_class: semantic`. A `type: ontology-asset` implies `asset_class: ontological`. A `type: extension` implies `asset_class: extension`. Validator enforces this; mismatches are CI failures.
-9. **Pinned release identity (CR-AR-06).** For `maturity-model`, `assessment-model` and `component` assets, CI reads `model.yaml` at the resolved commit and checks its `id` and `version` against the registry record. `release.manifest: null` is an explicit exception for a legacy/catalog asset with no authoritative manifest.
 8. **Compatibility axes** (CR-AR-01 Phase 1). For `semantic` / `ontological` / `extension` asset classes, the schema requires a `compatibility` block declaring required_axes. Required axes must be present in the class's axes catalogue (`axes/catalog.yaml`). Existing assessment-class records do not require `compatibility` (backward-compat shim).
+9. **Pinned release identity (CR-AR-06).** For `maturity-model`, `assessment-model` and `component` assets, CI reads `model.yaml` at the resolved commit and checks its `id` and `version` against the registry record. `release.manifest: null` is an explicit exception for a legacy/catalog asset with no authoritative manifest.
 
 ## Cross-class compatibility (resolution rule)
 
