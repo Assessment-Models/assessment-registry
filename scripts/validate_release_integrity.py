@@ -33,6 +33,10 @@ def resolve(repo:Path,url:str,ref:str)->str:
   return sha
  if DIGEST.fullmatch(ref):raise IntegrityError("sha256 digest references are reserved but unsupported: no content-addressed artifact resolver exists")
  raise IntegrityError(f"unsupported reference {ref!r}; expected vX.Y.Z tag or 40-character commit SHA")
+def validate_commit_claim(release:dict,resolved_commit:str)->None:
+ claim=release.get("commit")
+ if claim and claim.lower()!=resolved_commit.lower():
+  raise IntegrityError(f"release.commit {claim} != resolved commit {resolved_commit}")
 def validate_manifest(text:str,path:str,asset_id:str,version:str)->None:
  try:d=yaml.safe_load(text)
  except yaml.YAMLError as e:raise IntegrityError(f"invalid YAML in pinned {path}: {e}") from e
@@ -49,8 +53,7 @@ def validate(record:dict)->tuple[str,str]:
   r=subprocess.run(["git","init","--bare",str(bare)],capture_output=True,text=True)
   if r.returncode:raise IntegrityError(r.stderr.strip() or "could not initialize temporary Git repository")
   commit=resolve(bare,url,ref)
-  claim=rel.get("commit")
-  if claim and claim.lower()!=commit:raise IntegrityError(f"release.commit {claim} != resolved commit {commit}")
+  validate_commit_claim(rel,commit)
   if path:
    text=git(bare,"show",f"{commit}:{path}",check=False)
    if not text:raise IntegrityError(f"pinned commit {commit} does not contain authoritative manifest {path}")
