@@ -44,12 +44,19 @@
         },
         "reference": {
           "type": "string",
-          "description": "IMMUTABLE reference: tag vX.Y.Z, 40-char commit SHA, or sha256 digest. main/master/latest/HEAD are forbidden (CR-AM-11 section 12)."
+          "description": "Immutable source reference: vX.Y.Z Git tag or full 40-character Git commit SHA. sha256 digests are reserved but unsupported until a content-addressed resolver exists."
         },
         "commit": {
           "type": "string",
           "pattern": "^[0-9a-f]{40}$",
           "description": "Optional full commit SHA corroborating the tag reference."
+        },
+        "manifest": {
+          "oneOf": [
+            {"type": "string", "minLength": 1},
+            {"type": "null"}
+          ],
+          "description": "Authoritative manifest path at the pinned release. Defaults to model.yaml for maturity-model, assessment-model and component records; null explicitly declares no authoritative manifest for a legacy/catalog asset."
         }
       }
     },

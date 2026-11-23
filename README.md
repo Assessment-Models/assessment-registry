@@ -63,13 +63,14 @@ assessment-registry/
 ## Registration rules (CR-AM-11 §11–12, augmented by CR-AR-01)
 
 1. **Metadata + references only.** Records never duplicate asset content.
-2. **Immutable references are mandatory.** `release.reference` must be a release tag (`vX.Y.Z`), a 40-char commit SHA, or a content digest. `main`, `master`, `latest`, `HEAD` are rejected by CI.
+2. **Immutable references are verified, not merely syntax-checked.** `release.reference` must resolve as a release tag (`vX.Y.Z`) or 40-character commit SHA in the declared source repository. Annotated tags are peeled to commits; an optional `release.commit` must agree. SHA-256 digests are reserved but fail closed until a content-addressed resolver is defined. Mutable references are rejected.
 3. **One record per asset**, filename = `<id>.yaml` under the type-matching directory.
 4. **Contract conformance is declared**, per the contract handshake (§15): every record names the OpenDEA contract id + version the asset conforms to.
 5. **Dependencies must resolve.** A record's `dependencies` entries must reference other registered asset ids.
 6. **asset_class declaration** (CR-AR-01 Phase 1). New records MUST declare `asset_class`. Pre-CR-AR-01 records are accepted without `asset_class` and default-infer to `assessment` via the backward-compat shim.
 7. **Type ↔ asset_class coherence** (CR-AR-01 Phase 1). A `type: maturity-model | assessment-model | assessment-tool | component` implies `asset_class: assessment`. A `type: semantic-architecture-asset` implies `asset_class: semantic`. A `type: ontology-asset` implies `asset_class: ontological`. A `type: extension` implies `asset_class: extension`. Validator enforces this; mismatches are CI failures.
 8. **Compatibility axes** (CR-AR-01 Phase 1). For `semantic` / `ontological` / `extension` asset classes, the schema requires a `compatibility` block declaring required_axes. Required axes must be present in the class's axes catalogue (`axes/catalog.yaml`). Existing assessment-class records do not require `compatibility` (backward-compat shim).
+9. **Pinned release identity (CR-AR-06).** For `maturity-model`, `assessment-model` and `component` assets, CI reads `model.yaml` at the resolved commit and checks its `id` and `version` against the registry record. `release.manifest: null` is an explicit exception for a legacy/catalog asset with no authoritative manifest.
 
 ## Cross-class compatibility (resolution rule)
 
@@ -86,7 +87,7 @@ The rule is documentary in Phase 1; resolver-side enforcement is Phase 2+.
 1. Copy the closest record under `examples/` into the type-matching `registry/` directory (or, for semantic / ontological classes, the `registry/semantic/` / `registry/ontological/` directory).
 2. Fill identity, source, immutable release reference, contract handshake, status.
 3. **If the asset class is `semantic`, `ontological`, or `extension`**, also declare `compatibility.required_axes` (and ideally `compatibility.declared_axes`).
-4. Open a PR — CI runs `scripts/validate_registry.py` (schema + immutability + uniqueness + referential integrity + asset_class shim + type↔class coherence + axes coherence) and `scripts/resolve.py` on changed records.
+4. Open a PR — CI runs `scripts/validate_registry.py` (schema + uniqueness + referential integrity + asset_class shim + type↔class coherence + axes coherence) and `scripts/validate_release_integrity.py` across every registry record.
 5. On merge the asset is registered; ecosystem CI (assessment-ci) picks it up from there.
 
 ## Status values
