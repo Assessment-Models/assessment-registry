@@ -1,3 +1,11 @@
+## [Unreleased] — reconcile current maturity-model release pins
+
+### Changed
+
+- `registry/maturity-models/maturity-model-autonomous-operations.yaml`: advance the active registration from 2.0.0 to 2.0.1 and pin it to the verified immutable source commit `75795a1e23e90edcfa268737e511fa16fcfc18eb`. Clarify that the registered release contains touchpoints v0.1.1-draft, while later v0.1.2-draft reconciliation on the source default branch is not part of that release snapshot.
+- `registry/maturity-models/maturity-model-operations.yaml`: advance the active registration from 2.0.0 to 2.1.1 and pin it to the verified immutable source commit `c6da76d5f3db1f9a70dac3b0cfabdc74f4894094`. Replace the non-resolving `v2.0.0` tag reference with the commit SHA, and distinguish the release-pinned v0.2.2-draft touchpoint artifact from the later v0.2.3-draft default-branch state.
+- No tags are created and no touchpoint contract or relationship semantics are promoted by this registry update.
+
 # Changelog
 
 ## [Unreleased] — register maturity-model-digital-transformation v1.1.0-alpha

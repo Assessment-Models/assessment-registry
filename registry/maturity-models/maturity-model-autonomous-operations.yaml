@@ -22,32 +22,28 @@ source:
   organization: Assessment-Models
   repository: maturity-model-autonomous-operations
 release:
-  version: 2.0.0
-  reference: 8ccf747e483d3c1bd82a46d1a5bb09a045a1e81d
-  commit: 8ccf747e483d3c1bd82a46d1a5bb09a045a1e81d
+  version: 2.0.1
+  reference: 75795a1e23e90edcfa268737e511fa16fcfc18eb
+  commit: 75795a1e23e90edcfa268737e511fa16fcfc18eb
 conformsTo:
   contract:
     id: maturity-scale-contract
     version: "1.0"
 status: active
 notes: >-
-  The registered model version is 2.0.0 and its release reference and commit
-  are the immutable SHA 8ccf747e483d3c1bd82a46d1a5bb09a045a1e81d. This commit
-  has been verified to exist. The repository currently has no v2.0.0 Git tag;
-  v1.0.1 is a historical tag. The registry therefore records an immutable
-  commit reference, but the version-to-tag release convention remains pending.
-  The v2 model declares L-0 Not Assessed as an unscored sentinel and L-1..L-5
-  as its five capability levels, mapped to the canonical v2 bands. Historical
-  index values and band outcomes remain comparable; the per-criterion labels
-  follow the renumbered scale. The frozen v1-alpha catalog lineage remains
-  separate and is not the current model source.
+  Release 2.0.1 (2026-11-23) is pinned to immutable commit
+  75795a1e23e90edcfa268737e511fa16fcfc18eb, the merge commit for the
+  versioned 2.0.1 release. The commit has been verified in the source
+  repository; no v2.0.1 tag exists, so the registry uses the permitted
+  immutable commit reference rather than inventing a tag.
+  This release includes the typed root-manifest declaration for the existing
+  AO-to-Operations touchpoint artifact. At the pinned release, touchpoints.yaml
+  is v0.1.1-draft and remains governed by
+  maturity-touchpoint-contract@0.1.0-draft. Subsequent main-branch touchpoint
+  reconciliation advanced that draft artifact to v0.1.2-draft, including the
+  corrected problem-management mapping and explicit reciprocal mirror pointer.
+  Those post-release draft changes are not represented by this 2.0.1 pin and
+  are not promoted to a stable contract by this registry update.
   The model's existing derived-from relationship to dea:maturity-operations
-  is preserved. Its touchpoints.yaml contains the AO-side mirror record
-  tp-autonomous-operations-x-operations and remains draft against
-  maturity-touchpoint-contract@0.1.0-draft. The typed root-manifest declaration
-  and explicit peer-side mirror pointer are proposed in
-  maturity-model-autonomous-operations#12 and maturity-model-operations#13.
-  The registered immutable SHA above predates those source changes; a follow-on
-  versioned release and registry-reference update will be required before the
-  typed declaration and reciprocal peer pointer are part of a registry-pinned
-  release.
+  is preserved. The frozen v1-alpha catalog lineage remains separate and is
+  not the current model source.

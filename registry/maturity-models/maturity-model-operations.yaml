@@ -12,9 +12,9 @@ source:
   organization: Assessment-Models
   repository: maturity-model-operations
 release:
-  version: 2.0.0
-  reference: v2.0.0
-  commit: fc82783e47c45094728613f9f75ca6ce8a07eff6
+  version: 2.1.1
+  reference: c6da76d5f3db1f9a70dac3b0cfabdc74f4894094
+  commit: c6da76d5f3db1f9a70dac3b0cfabdc74f4894094
 conformsTo:
   contract:
     id: maturity-scale-contract
@@ -64,15 +64,27 @@ compatibility:
       criterion IDs are permanent keys; breaking ID changes require a minor bump and a published migration
       map (migrations/v1-to-v2-map.yaml).'
 notes: >-
-  The canonical model id is dea:maturity-operations. This is the v2 migration target for the legacy
-  v1-alpha operations instrument (dea-assessment-operations), which remains a separate active asset. Level
-  semantics are carried verbatim from technehub-labs/dea-metamodel assessment-models/maturity/v2-beta/operations.yaml;
-  only the scoring fields differ from the frozen v1-alpha lineage. Scoring is against the canonical v2
-  band instance dea:maturity-bands-v2 v1.0.0. CR-AM-13 released as 2.0.0 (2026-11-19, PR #7, merge commit
-  fc82783e): enterprise expansion to six dimensions, 19 sub-dimensions, 51 criteria with v1 lineage flags
-  (this final count supersedes the provisional 45 noted while the change was in flight), questionnaire,
-  evaluation model, evidence schema, blueprint-deduction rules, v1-to-v2 migration map, and the Handshake
-  & Touchpoint Model (touchpoints.yaml v0.2.0) with six declared peer touchpoints; dependencies listed
-  above are machine-checked. Release 1.0.0 (commit b4e556a40a04a6856dc63c46e05dae172419ea11) remains
-  resolvable for v1 assessment records. Narrative companion notes in dependencies/maturity-model-operations.md
-  and provisional compatibility declaration in compatibility/operations-touchpoints-v1-draft.yaml.
+  The canonical model id is dea:maturity-operations. This is the v2 migration
+  target for the legacy v1-alpha operations instrument (dea-assessment-operations),
+  which remains a separate active asset. Level semantics are carried verbatim
+  from technehub-labs/dea-metamodel assessment-models/maturity/v2-beta/operations.yaml;
+  scoring is model-owned and uses the canonical v2 band instance
+  dea:maturity-bands-v2 v1.0.0.
+  Release 2.0.0 (2026-11-19, PR #7, merge commit fc82783e) established the
+  enterprise-operations scope: six dimensions, 19 sub-dimensions, 51 criteria,
+  questionnaire, evaluation model, evidence schema, blueprint-deduction rules,
+  v1-to-v2 migration map and the initial Handshake & Touchpoint Model.
+  Release 2.1.1 (2026-11-23) is pinned to immutable commit
+  c6da76d5f3db1f9a70dac3b0cfabdc74f4894094. The commit has been verified in
+  the source repository. The previous registry reference v2.0.0 did not resolve
+  to a published tag; the release is now pinned directly to its immutable
+  commit SHA. No v2.1.1 tag is asserted or created.
+  At the 2.1.1 release snapshot, model.yaml declares touchpoints.yaml and the
+  touchpoint artifact is v0.2.2-draft. Subsequent main-branch reconciliation
+  advanced the draft artifact to v0.2.3 with the six peer relationships and
+  explicit mirror declarations. Those post-release draft changes are not part
+  of the pinned 2.1.1 snapshot and remain governed by
+  maturity-touchpoint-contract@0.1.0-draft.
+  The operations-modernization component remains a separately versioned
+  dependency (v1.0.0); model scoring and assessment ownership remain with
+  this model. Dependencies listed above remain machine-checked.
