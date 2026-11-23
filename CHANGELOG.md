@@ -12,7 +12,7 @@
 - README documents immutable resolution and pinned-manifest verification.
 
 ### Governance
-- Repository-standard adoption remains authoritative in `maturity-model-standard/registry/conformance.yaml`; no duplicate adoption state is introduced here.
+- Repository-standard adoption reconciliation (issue #16) remains a separate change; this CR does not alter that authority model.
 
 ## [Unreleased] — reconcile current maturity-model release pins
 
