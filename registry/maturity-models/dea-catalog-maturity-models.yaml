@@ -20,6 +20,7 @@ release:
   version: 1.0.0-alpha
   reference: fa2f9d57b75227a65d052fa13f426171c1cd295c
   commit: fa2f9d57b75227a65d052fa13f426171c1cd295c
+  manifest: null
 conformsTo:
   contract:
     id: opendea-assessment-metamodel
