@@ -2,7 +2,7 @@
 
 ## Status
 
-- **State:** Proposed — awaiting review.
+- **State:** Implemented — schema, validator, resolver output and coherence checks merged via PRs #8 and #9.
 - **Series tag:** `CR-AR` (Assessment Registry). Continues the AR series after CR-AR-01.
 - **Numbering convention:** `CR-AR-05` per the numbering established in CR-AR-01 (CR-AR-02/03/04 are parked for their named concerns; this CR takes the next free number).
 - **Primary repo:** `Assessment-Models/assessment-registry` (schema + validator).
