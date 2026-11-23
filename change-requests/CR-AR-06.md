@@ -5,7 +5,7 @@
 - **Series:** CR-AR (Assessment Registry).
 - **Primary repository:** `Assessment-Models/assessment-registry`.
 - **Origin:** [Issue #28](https://github.com/Assessment-Models/assessment-registry/issues/28).
-- **Related governance decision:** [Issue #16](https://github.com/Assessment-Models/assessment-registry/issues/16), resolved by retaining the authority boundary established in CR-AM-ORG-RES-000.
+- **Related follow-up:** [Issue #16](https://github.com/Assessment-Models/assessment-registry/issues/16) is a separate repository-standard adoption reconciliation and is intentionally outside this release-integrity CR.
 
 ## 1. Problem
 The registry validator checks the syntax of `release.reference`, but not whether it resolves in the declared source repository. A syntactically valid but nonexistent tag can therefore pass CI. Commit-SHA and digest references are not verified. The registry also does not verify that `release.commit` agrees with the resolved reference or that the authoritative manifest at the pinned commit identifies the registered asset and release version.
