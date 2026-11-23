@@ -31,9 +31,23 @@ conformsTo:
     version: "1.0"
 status: active
 notes: >-
-  Release reference is the immutable v1.0.1 tag (resolves to commit ef25fe1...) on the
-  canonical repo. Criteria register carried verbatim from the catalog bundle (157/157);
-  catalog v1-alpha entry marked superseded_by this repo (dea-catalog-maturity-models
-  PR #15). Enrichment PR (evaluation v2, questionnaire, docs) pending on branch
-  vibe/reconcile-f5ed1a of the source repo.
-  Release 2.0.0 (2026-11-22): adopts the canonical scale level renumbering — L-0 Not Assessed + L-1..L-5 per dea-metamodel #214 (breaking; adoption pending canonical ratification), following the autonomous-operations precedent. Mapping: old L0/L-0 -> L-1 .. old L4 -> L-5; band instance dea:maturity-bands-v2 v1.0.0 unchanged (ids, ranges, effort multipliers); historical index values and bands remain valid. Immutable reference: merge of the cr/scale-level-renumbering branch, commit 8ccf747e483d3c1bd82a46d1a5bb09a045a1e81d.
+  The registered model version is 2.0.0 and its release reference and commit
+  are the immutable SHA 8ccf747e483d3c1bd82a46d1a5bb09a045a1e81d. This commit
+  has been verified to exist. The repository currently has no v2.0.0 Git tag;
+  v1.0.1 is a historical tag. The registry therefore records an immutable
+  commit reference, but the version-to-tag release convention remains pending.
+  The v2 model declares L-0 Not Assessed as an unscored sentinel and L-1..L-5
+  as its five capability levels, mapped to the canonical v2 bands. Historical
+  index values and band outcomes remain comparable; the per-criterion labels
+  follow the renumbered scale. The frozen v1-alpha catalog lineage remains
+  separate and is not the current model source.
+  The model's existing derived-from relationship to dea:maturity-operations
+  is preserved. Its touchpoints.yaml contains the AO-side mirror record
+  tp-autonomous-operations-x-operations and remains draft against
+  maturity-touchpoint-contract@0.1.0-draft. The typed root-manifest declaration
+  and explicit peer-side mirror pointer are proposed in
+  maturity-model-autonomous-operations#12 and maturity-model-operations#13.
+  The registered immutable SHA above predates those source changes; a follow-on
+  versioned release and registry-reference update will be required before the
+  typed declaration and reciprocal peer pointer are part of a registry-pinned
+  release.
