@@ -84,6 +84,13 @@
           "type": "string",
           "description": "Immutable source reference: vX.Y.Z Git tag or full 40-character Git commit SHA. sha256 digests are reserved but unsupported until a content-addressed resolver exists."
         },
+        "manifest": {
+          "oneOf": [
+            { "type": "string", "minLength": 1 },
+            { "type": "null" }
+          ],
+          "description": "Authoritative manifest path at the pinned release. Defaults to model.yaml for maturity-model, assessment-model and component records; null explicitly declares no authoritative manifest for a legacy/catalog asset."
+        },
         "commit": {
           "type": "string",
           "pattern": "^[0-9a-f]{40}$",
