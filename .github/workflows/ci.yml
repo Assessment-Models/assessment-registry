@@ -14,5 +14,9 @@ jobs:
         run: pip install pyyaml jsonschema
       - name: Validate registration records (schema + immutability + uniqueness + references)
         run: python scripts/validate_registry.py
+      - name: Test immutable release resolution and manifest identity (CR-AR-06)
+        run: python -m unittest discover -s tests -v
+      - name: Resolve and verify every registered release (CR-AR-06)
+        run: python scripts/validate_release_integrity.py
       - name: Resolve the legacy catalog record (registration + resolution demo, CR-AM-11 Phase 1 exit)
         run: python scripts/resolve.py dea-catalog-maturity-models --check
