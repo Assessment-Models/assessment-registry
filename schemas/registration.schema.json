@@ -5,15 +5,7 @@
   "description": "One registration record per OpenDEA-compatible asset (CR-AM-11 section 11 + CR-AR-01 section Scope). Metadata and immutable references only - never model content. asset_class defaults to 'assessment' when absent (CR-AR-01 backward-compat shim).",
   "type": "object",
   "additionalProperties": false,
-  "required": [
-    "id",
-    "type",
-    "name",
-    "source",
-    "release",
-    "conformsTo",
-    "status"
-  ],
+  "required": ["id", "type", "name", "source", "release", "conformsTo", "status"],
   "properties": {
     "id": {
       "type": "string",
@@ -22,58 +14,28 @@
     },
     "asset_class": {
       "type": "string",
-      "enum": [
-        "assessment",
-        "semantic",
-        "ontological",
-        "extension"
-      ],
+      "enum": ["assessment", "semantic", "ontological", "extension"],
       "description": "CR-AR-01 discriminator. Defaults to 'assessment' when absent (backward-compat shim). New asset classes require their own CR (CR-AR-01 §Scope constraint)."
     },
     "type": {
       "type": "string",
-      "enum": [
-        "maturity-model",
-        "assessment-model",
-        "assessment-tool",
-        "component",
-        "semantic-architecture-asset",
-        "ontology-asset",
-        "extension"
-      ]
+      "enum": ["maturity-model", "assessment-model", "assessment-tool", "component", "semantic-architecture-asset", "ontology-asset", "extension"]
     },
-    "name": {
-      "type": "string",
-      "minLength": 1
-    },
-    "description": {
-      "type": "string"
-    },
+    "name": {"type": "string", "minLength": 1},
+    "description": {"type": "string"},
     "source": {
       "type": "object",
       "additionalProperties": false,
-      "required": [
-        "organization",
-        "repository"
-      ],
+      "required": ["organization", "repository"],
       "properties": {
-        "organization": {
-          "type": "string",
-          "minLength": 1
-        },
-        "repository": {
-          "type": "string",
-          "minLength": 1
-        }
+        "organization": {"type": "string", "minLength": 1},
+        "repository": {"type": "string", "minLength": 1}
       }
     },
     "release": {
       "type": "object",
       "additionalProperties": false,
-      "required": [
-        "version",
-        "reference"
-      ],
+      "required": ["version", "reference"],
       "properties": {
         "version": {
           "type": "string",
@@ -84,13 +46,6 @@
           "type": "string",
           "description": "Immutable source reference: vX.Y.Z Git tag or full 40-character Git commit SHA. sha256 digests are reserved but unsupported until a content-addressed resolver exists."
         },
-        "manifest": {
-          "oneOf": [
-            { "type": "string", "minLength": 1 },
-            { "type": "null" }
-          ],
-          "description": "Authoritative manifest path at the pinned release. Defaults to model.yaml for maturity-model, assessment-model and component records; null explicitly declares no authoritative manifest for a legacy/catalog asset."
-        },
         "commit": {
           "type": "string",
           "pattern": "^[0-9a-f]{40}$",
@@ -98,13 +53,8 @@
         },
         "manifest": {
           "oneOf": [
-            {
-              "type": "string",
-              "minLength": 1
-            },
-            {
-              "type": "null"
-            }
+            {"type": "string", "minLength": 1},
+            {"type": "null"}
           ],
           "description": "Authoritative manifest path at the pinned release. Defaults to model.yaml for maturity-model, assessment-model and component records; null explicitly declares no authoritative manifest for a legacy/catalog asset."
         }
@@ -113,40 +63,22 @@
     "conformsTo": {
       "type": "object",
       "additionalProperties": false,
-      "required": [
-        "contract"
-      ],
+      "required": ["contract"],
       "properties": {
         "contract": {
           "type": "object",
           "additionalProperties": false,
-          "required": [
-            "id",
-            "version"
-          ],
+          "required": ["id", "version"],
           "properties": {
-            "id": {
-              "type": "string",
-              "minLength": 1
-            },
-            "version": {
-              "type": "string",
-              "minLength": 1
-            }
+            "id": {"type": "string", "minLength": 1},
+            "version": {"type": "string", "minLength": 1}
           }
         }
       }
     },
     "status": {
       "type": "string",
-      "enum": [
-        "active",
-        "legacy",
-        "candidate-for-migration",
-        "reference",
-        "deprecated",
-        "superseded"
-      ]
+      "enum": ["active", "legacy", "candidate-for-migration", "reference", "deprecated", "superseded"]
     },
     "components": {
       "type": "array",
@@ -154,91 +86,51 @@
       "items": {
         "type": "object",
         "additionalProperties": false,
-        "required": [
-          "id",
-          "version",
-          "reference"
-        ],
+        "required": ["id", "version", "reference"],
         "properties": {
-          "id": {
-            "type": "string",
-            "pattern": "^[a-z][a-z0-9-]*$"
-          },
-          "type": {
-            "type": "string"
-          },
-          "version": {
-            "type": "string"
-          },
-          "reference": {
-            "type": "string",
-            "description": "Immutable reference to the component release."
-          }
+          "id": {"type": "string", "pattern": "^[a-z][a-z0-9-]*$"},
+          "type": {"type": "string"},
+          "version": {"type": "string"},
+          "reference": {"type": "string", "description": "Immutable reference to the component release."}
         }
       }
     },
     "dependencies": {
       "type": "array",
       "description": "Other registered asset ids this asset depends on.",
-      "items": {
-        "type": "string",
-        "pattern": "^[a-z][a-z0-9-]*$"
-      }
+      "items": {"type": "string", "pattern": "^[a-z][a-z0-9-]*$"}
     },
     "compatibility": {
       "type": "object",
       "description": "CR-AR-01 compatibility-axes generalisation. Optional for backward compatibility; new asset classes should declare their axes here per axes/catalog.yaml.",
       "additionalProperties": false,
-      "required": [
-        "required_axes"
-      ],
+      "required": ["required_axes"],
       "properties": {
         "required_axes": {
           "type": "array",
           "description": "Axes this asset MUST satisfy for cross-asset compatibility.",
-          "items": {
-            "type": "string",
-            "minLength": 1
-          }
+          "items": {"type": "string", "minLength": 1}
         },
         "declared_axes": {
           "type": "object",
           "description": "Per-axis declaration of how this asset satisfies each axis.",
-          "additionalProperties": {
-            "type": "string"
-          }
+          "additionalProperties": {"type": "string"}
         }
       }
     },
-    "notes": {
-      "type": "string"
-    },
+    "notes": {"type": "string"},
     "superseded_by": {
       "description": "CR-AR-05. Machine-readable supersession: either a registered asset id or an external canonical target. Coherent with status: legacy/superseded records SHOULD declare it; active records MUST NOT.",
       "oneOf": [
-        {
-          "type": "string",
-          "pattern": "^[a-z][a-z0-9-]*$"
-        },
+        {"type": "string", "pattern": "^[a-z][a-z0-9-]*$"},
         {
           "type": "object",
           "additionalProperties": false,
-          "required": [
-            "organization",
-            "repository"
-          ],
+          "required": ["organization", "repository"],
           "properties": {
-            "organization": {
-              "type": "string",
-              "minLength": 1
-            },
-            "repository": {
-              "type": "string",
-              "minLength": 1
-            },
-            "path": {
-              "type": "string"
-            }
+            "organization": {"type": "string", "minLength": 1},
+            "repository": {"type": "string", "minLength": 1},
+            "path": {"type": "string"}
           }
         }
       ]
@@ -247,57 +139,24 @@
   "allOf": [
     {
       "description": "Per-asset-class required field sets (CR-AR-01 §Scope — non-breaking).",
-      "if": {
-        "properties": {
-          "asset_class": {
-            "const": "semantic"
-          }
-        },
-        "required": [
-          "asset_class"
-        ]
-      },
+      "if": {"properties": {"asset_class": {"const": "semantic"}}, "required": ["asset_class"]},
       "then": {
         "description": "Semantic-class entries declare compatibility axes (governance + at least one technical axis).",
-        "required": [
-          "compatibility"
-        ]
+        "required": ["compatibility"]
       }
     },
     {
-      "if": {
-        "properties": {
-          "asset_class": {
-            "const": "ontological"
-          }
-        },
-        "required": [
-          "asset_class"
-        ]
-      },
+      "if": {"properties": {"asset_class": {"const": "ontological"}}, "required": ["asset_class"]},
       "then": {
         "description": "Ontological-class entries declare compatibility axes (governance + upper-ontology choice).",
-        "required": [
-          "compatibility"
-        ]
+        "required": ["compatibility"]
       }
     },
     {
-      "if": {
-        "properties": {
-          "asset_class": {
-            "const": "extension"
-          }
-        },
-        "required": [
-          "asset_class"
-        ]
-      },
+      "if": {"properties": {"asset_class": {"const": "extension"}}, "required": ["asset_class"]},
       "then": {
         "description": "Extension-class entries declare compatibility axes (extension kind + compatibility statement).",
-        "required": [
-          "compatibility"
-        ]
+        "required": ["compatibility"]
       }
     }
   ]
