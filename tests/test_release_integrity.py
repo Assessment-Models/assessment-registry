@@ -1,6 +1,6 @@
 import subprocess,tempfile,unittest
 from pathlib import Path
-from scripts.validate_release_integrity import IntegrityError,resolve,validate_manifest
+from scripts.validate_release_integrity import IntegrityError,resolve,validate_commit_claim,validate_manifest
 def git(p,*a):
  r=subprocess.run(["git","-C",str(p),*a],capture_output=True,text=True)
  if r.returncode:raise AssertionError(r.stderr)
@@ -26,6 +26,8 @@ class TestReleaseIntegrity(unittest.TestCase):
   with self.assertRaises(IntegrityError):resolve(self.target(),str(self.remote),"f"*40)
  def test_digest_fails_closed(self):
   with self.assertRaisesRegex(IntegrityError,"reserved but unsupported"):resolve(self.target(),str(self.remote),"sha256:"+"a"*64)
+ def test_tag_commit_mismatch_fails(self):
+  with self.assertRaises(IntegrityError):validate_commit_claim({"commit":"f"*40},self.sha)
  def test_manifest_id_mismatch(self):
   with self.assertRaises(IntegrityError):validate_manifest("id: other\nversion: 1.2.3\n","model.yaml","sample-model","1.2.3")
  def test_manifest_version_mismatch(self):
