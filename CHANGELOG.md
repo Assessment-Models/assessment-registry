@@ -1,3 +1,19 @@
+## [Unreleased] — CR-AR-06 immutable release integrity
+
+### Added
+- `scripts/validate_release_integrity.py`: resolves every registry tag or commit SHA, peels annotated tags, cross-checks commit claims, and validates authoritative manifests at the pinned commit.
+- `tests/test_release_integrity.py`: positive and negative Git-reference and manifest-identity tests.
+- `change-requests/CR-AR-06.md`: normative requirements and acceptance criteria.
+
+### Changed
+- Registration schema adds optional `release.manifest` path/null override; SHA-256 references are reserved but not treated as verified Git references.
+- Legacy maturity catalogue explicitly declares `release.manifest: null`.
+- Registry CI runs release-integrity validation and its test suite on pull requests and main pushes.
+- README documents immutable resolution and pinned-manifest verification.
+
+### Governance
+- Repository-standard adoption remains authoritative in `maturity-model-standard/registry/conformance.yaml`; no duplicate adoption state is introduced here.
+
 ## [Unreleased] — reconcile current maturity-model release pins
 
 ### Changed
