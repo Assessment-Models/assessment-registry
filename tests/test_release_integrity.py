@@ -1,6 +1,6 @@
 import subprocess,tempfile,unittest
 from pathlib import Path
-from scripts.validate_release_integrity import IntegrityError,resolve,validate_commit_claim,validate_manifest
+from scripts.validate_release_integrity import IntegrityError,resolve,validate_commit_claim,validate_manifest,validate_repository_standard
 def git(p,*a):
  r=subprocess.run(["git","-C",str(p),*a],capture_output=True,text=True)
  if r.returncode:raise AssertionError(r.stderr)
@@ -32,4 +32,17 @@ class TestReleaseIntegrity(unittest.TestCase):
   with self.assertRaises(IntegrityError):validate_manifest("id: other\nversion: 1.2.3\n","model.yaml","sample-model","1.2.3")
  def test_manifest_version_mismatch(self):
   with self.assertRaises(IntegrityError):validate_manifest("id: sample-model\nversion: 9.9.9\n","model.yaml","sample-model","1.2.3")
+
+ def test_repository_standard_snapshot_matches_pinned_declaration(self):
+  record={"id":"sample-model","release":{"version":"1.2.3"},"repository_standard":{"id":"AM-MODEL-REPOSITORY-STANDARD","version":"1.0.1","conformance":"structural"}}
+  declaration="repository:\n  type: maturity-model\nstandard:\n  id: AM-MODEL-REPOSITORY-STANDARD\n  version: '1.0.1'\n  conformance: structural\nmodel:\n  id: sample-model\n  version: '1.2.3'\n"
+  validate_repository_standard(declaration,record)
+ def test_repository_standard_version_mismatch_fails(self):
+  record={"id":"sample-model","release":{"version":"1.2.3"},"repository_standard":{"id":"AM-MODEL-REPOSITORY-STANDARD","version":"1.0.1","conformance":"structural"}}
+  declaration="repository:\n  type: maturity-model\nstandard:\n  id: AM-MODEL-REPOSITORY-STANDARD\n  version: '2.0.0'\n  conformance: structural\nmodel:\n  id: sample-model\n  version: '1.2.3'\n"
+  with self.assertRaisesRegex(IntegrityError,"standard.version"):validate_repository_standard(declaration,record)
+ def test_repository_standard_model_version_mismatch_fails(self):
+  record={"id":"sample-model","release":{"version":"1.2.3"},"repository_standard":{"id":"AM-MODEL-REPOSITORY-STANDARD","version":"1.0.1","conformance":"structural"}}
+  declaration="repository:\n  type: maturity-model\nstandard:\n  id: AM-MODEL-REPOSITORY-STANDARD\n  version: '1.0.1'\n  conformance: structural\nmodel:\n  id: sample-model\n  version: '9.9.9'\n"
+  with self.assertRaisesRegex(IntegrityError,"model.version"):validate_repository_standard(declaration,record)
 if __name__=="__main__":unittest.main()
