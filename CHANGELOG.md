@@ -1,3 +1,8 @@
+## [Unreleased] — CR-AR-08 semantic resolution metadata (proposal)
+
+### Governance
+- Add the proposed CR-AR-08 design for explicit canonical asset identity and immutable-release criterion-register discovery, addressing the Level 3 prerequisites in assessment-ci#9. This proposal changes no schema, registry record, model release, touchpoint record, or tag.
+
 ## [Unreleased] — CR-AR-06 immutable release integrity
 
 ### Added
