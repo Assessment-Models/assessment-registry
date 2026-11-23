@@ -23,6 +23,10 @@ release:
   version: 2.0.0
   reference: 92691b6cc9d50cebefeeadd608dd96a7096d7868
   commit: 92691b6cc9d50cebefeeadd608dd96a7096d7868
+repository_standard:
+  id: AM-MODEL-REPOSITORY-STANDARD
+  version: "1.0.1"
+  conformance: structural
 conformsTo:
   contract:
     id: maturity-scale-contract
