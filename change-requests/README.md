@@ -10,6 +10,7 @@
 | [CR-AR-01-xref-dea-ontology](./CR-AR-01-xref-dea-ontology.md) | Cross-ref: CR-AR-01 ↔ CR-EO-01 (dea-ontology) | Proposed | 2026-08-26 | (Phase 0) |
 | [CR-AR-05](./CR-AR-05.md) | Machine-readable supersession (superseded_by field + validator coherence) | Implemented | 2026-10-27 | #8/#9 |
 | [CR-AR-06](./CR-AR-06.md) | Immutable source reference and pinned release identity verification | Accepted for implementation | 2026-11-23 | this PR |
+| [CR-AR-08](./CR-AR-08.md) | Canonical asset identity and criterion-register discovery | Proposed | 2026-11-24 | [Issue #32](https://github.com/Assessment-Models/assessment-registry/issues/32) |
 
 ## Pipeline
 
