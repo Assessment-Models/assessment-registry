@@ -42,7 +42,12 @@ notes: >-
   follow the renumbered scale. The frozen v1-alpha catalog lineage remains
   separate and is not the current model source.
   The model's existing derived-from relationship to dea:maturity-operations
-  is preserved. Its touchpoints.yaml mirrors the Operations seam using
+  is preserved. Its touchpoints.yaml contains the AO-side mirror record
   tp-autonomous-operations-x-operations and remains draft against
-  maturity-touchpoint-contract@0.1.0-draft; the root model.yaml declares the
-  artifact through touchpoints.declaration.
+  maturity-touchpoint-contract@0.1.0-draft. The typed root-manifest declaration
+  and explicit peer-side mirror pointer are proposed in
+  maturity-model-autonomous-operations#12 and maturity-model-operations#13.
+  The registered immutable SHA above predates those source changes; a follow-on
+  versioned release and registry-reference update will be required before the
+  typed declaration and reciprocal peer pointer are part of a registry-pinned
+  release.
