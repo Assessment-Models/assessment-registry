@@ -43,6 +43,23 @@ def validate_manifest(text:str,path:str,asset_id:str,version:str)->None:
  if not isinstance(d,dict):raise IntegrityError(f"pinned {path} is not a YAML mapping")
  if d.get("id")!=asset_id:raise IntegrityError(f"pinned {path} id {d.get('id')!r} != registry id {asset_id!r}")
  if str(d.get("version"))!=str(version):raise IntegrityError(f"pinned {path} version {d.get('version')!r} != release.version {version!r}")
+def validate_repository_standard(text:str,record:dict)->None:
+ try:d=yaml.safe_load(text)
+ except yaml.YAMLError as e:raise IntegrityError(f"invalid YAML in pinned standard.yaml: {e}") from e
+ if not isinstance(d,dict):raise IntegrityError("pinned standard.yaml is not a YAML mapping")
+ expected=record.get("repository_standard")
+ if not isinstance(expected,dict):raise IntegrityError("repository_standard adoption snapshot is required for this maturity-model registration")
+ repository=d.get("repository") or {}; standard=d.get("standard") or {}; model=d.get("model") or {}
+ checks=[
+  ("repository.type",repository.get("type"),"maturity-model"),
+  ("standard.id",standard.get("id"),expected.get("id")),
+  ("standard.version",str(standard.get("version")),str(expected.get("version"))),
+  ("standard.conformance",standard.get("conformance"),expected.get("conformance")),
+  ("model.id",model.get("id"),record.get("id")),
+  ("model.version",str(model.get("version")),str((record.get("release") or {}).get("version"))),
+ ]
+ for field,actual,wanted in checks:
+  if actual!=wanted:raise IntegrityError(f"pinned standard.yaml {field} {actual!r} != expected {wanted!r}")
 def validate(record:dict)->tuple[str,str]:
  src,rel=record.get("source") or {},record.get("release") or {}
  org,repo_name,ref,version=src.get("organization"),src.get("repository"),rel.get("reference"),rel.get("version")
@@ -58,6 +75,10 @@ def validate(record:dict)->tuple[str,str]:
    text=git(bare,"show",f"{commit}:{path}",check=False)
    if not text:raise IntegrityError(f"pinned commit {commit} does not contain authoritative manifest {path}")
    validate_manifest(text,path,record.get("id","<unknown>"),version)
+  if record.get("type")=="maturity-model" and record.get("status")!="legacy":
+   declaration=git(bare,"show",f"{commit}:standard.yaml",check=False)
+   if not declaration:raise IntegrityError(f"pinned commit {commit} does not contain required repository-standard declaration standard.yaml")
+   validate_repository_standard(declaration,record)
  return commit,path or "not-applicable"
 def main()->int:
  errors=[];count=0
