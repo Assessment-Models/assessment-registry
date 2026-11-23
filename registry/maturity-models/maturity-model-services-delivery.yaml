@@ -14,6 +14,10 @@ release:
   version: 2.0.0
   reference: 703f8ff2855e35aaff7785c2f1aafdcaa5fe81d2
   commit: 703f8ff2855e35aaff7785c2f1aafdcaa5fe81d2
+repository_standard:
+  id: AM-MODEL-REPOSITORY-STANDARD
+  version: "1.0.1"
+  conformance: structural
 conformsTo:
   contract:
     id: maturity-scale-contract

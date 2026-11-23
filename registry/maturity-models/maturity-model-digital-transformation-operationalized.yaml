@@ -12,9 +12,9 @@ source:
   organization: Assessment-Models
   repository: maturity-model-digital-transformation-operationalized
 release:
-  version: 2.0.0
-  reference: 0b32c4ea56762a32ea8c01e11eedceef39b09909
-  commit: 0b32c4ea56762a32ea8c01e11eedceef39b09909
+  version: 2.0.1
+  reference: 617aabc106e991fdef1011c501f82f997f73a8ca
+  commit: 617aabc106e991fdef1011c501f82f997f73a8ca
 conformsTo:
   contract:
     id: maturity-scale-contract
@@ -52,4 +52,10 @@ notes: The canonical model id is dea:maturity-digital-transformation-operational
   and effort multipliers. The catalog proposal carries status PROPOSED; the model is published here as
   an independently versioned capability assessment asset so that the catalogue entry and the canonical
   model have one home. Scoring is against the canonical v2 band instance dea:maturity-bands-v2 v1.0.0.
-  Release 2.0.0 (2026-11-22) — adopts the canonical scale level renumbering — L-0 Not Assessed + L-1..L-5 per dea-metamodel #214 (breaking; adoption pending canonical ratification), following the autonomous-operations precedent. Mapping: old L0/L-0 -> L-1 .. old L4 -> L-5; band instance dea:maturity-bands-v2 v1.0.0 unchanged (ids, ranges, effort multipliers); historical index values and bands remain valid. Immutable reference: merge of the cr/scale-level-renumbering branch.
+  Release 2.0.1 (2026-11-23) — adopts the canonical scale level renumbering — L-0 Not Assessed + L-1..L-5 per dea-metamodel #214 (breaking; adoption pending canonical ratification), following the autonomous-operations precedent. Mapping: old L0/L-0 -> L-1 .. old L4 -> L-5; band instance dea:maturity-bands-v2 v1.0.0 unchanged (ids, ranges, effort multipliers); historical index values and bands remain valid. Immutable reference: merge of the cr/scale-level-renumbering branch.
+
+
+repository_standard:
+  id: AM-MODEL-REPOSITORY-STANDARD
+  version: "1.0.1"
+  conformance: structural
